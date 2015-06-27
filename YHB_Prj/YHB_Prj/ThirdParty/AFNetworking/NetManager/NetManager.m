@@ -124,7 +124,7 @@
 
     httpClient.parameterEncoding = aEncoding;
     NSMutableURLRequest *request = [httpClient requestWithMethod:aMethod path:aUrl parameters:aDict];
-    [NetManager setRequestHeadValue:request];
+    //[NetManager setRequestHeadValue:request];
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     NetManager *net = [NetManager shareInstance];
     if(aKey)

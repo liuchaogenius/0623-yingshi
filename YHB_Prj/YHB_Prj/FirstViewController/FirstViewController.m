@@ -7,16 +7,44 @@
 //
 
 #import "FirstViewController.h"
+#import "SlideImageView.h"
 
-@interface FirstViewController ()
-
+@interface FirstViewController ()<SlideImageViewDelegate>
+@property(nonatomic, strong) SlideImageView *slideImageView;
 @end
 
 @implementation FirstViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self setTitle:@"广场"];
+    
+    CGRect rect = {{(kMainScreenWidth-265)/2.0,40},{265,380}};
+    self.slideImageView = [[SlideImageView alloc]initWithFrame:rect ZMarginValue:5 XMarginValue:10 AngleValue:0.0 Alpha:1000];
+    self.slideImageView.borderColor = [UIColor whiteColor];
+    self.slideImageView.delegate = self;
+    [self.view addSubview:self.slideImageView];
+
+    for(int i=0; i<6; i++)
+    {
+        NSString* imageName = [NSString stringWithFormat:@"%d",i%4];
+        UIImage* image = [UIImage imageNamed:imageName];
+        [self.slideImageView addImage:image];
+    }
+    [self.slideImageView setImageShadowsWtihDirectionX:2 Y:2 Alpha:0.7];
+    [self.slideImageView reLoadUIview];
+}
+
+- (void)SlideImageViewDidClickWithIndex:(int)index
+{
+    NSString* indexStr = [[NSString alloc]initWithFormat:@"点击了第%d张",index];
+    MLOG(@"%@", indexStr);
+}
+
+- (void)SlideImageViewDidEndScorllWithIndex:(int)index
+{
+    NSString* indexStr = [[NSString alloc]initWithFormat:@"当前为第%d张",index];
+    MLOG(@"%@", indexStr);
 }
 
 - (void)didReceiveMemoryWarning {

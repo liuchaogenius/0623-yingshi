@@ -11,7 +11,7 @@
 
 #define kMainScreenHeight [UIScreen mainScreen].bounds.size.height
 #define kMainScreenWidth  [UIScreen mainScreen].bounds.size.width
-#define kHubBaseUrl @"http://114.215.207.196/ApiService/"
+#define kHubBaseUrl @"http://www.aclili.com:8080/"
 #define kHubRequestUrl(path,outUrl) do{\
   outUrl = [NSString stringWithFormat:@"%@%@",kHubBaseUrl,path];\
 }while(0)
@@ -34,10 +34,11 @@
 #define kViewBackgroundColor RGBCOLOR(238,238,238) // 所有屏幕底色
 #define kTabbarBackgroundColor RGBCOLOR(249,249,249) //tabbar的背景色
 #define kIconNorColor RGBCOLOR(153,153,153) //所有icon未选中的颜色
-#define kIconSelectColor RGBCOLOR(243,92,67) //所有icon选中的颜色
+#define kIconSelectColor RGBCOLOR(52,53,55) //所有icon选中的颜色
 #define kLineColor RGBCOLOR(204,204,204) //所有线条的颜色
 
 #define kClearColor [UIColor clearColor]
+#define kBlueColor RGBCOLOR(22, 169, 200)
 
 #define kFont10 [UIFont systemFontOfSize:10]
 #define kFont11 [UIFont systemFontOfSize:11]

@@ -35,6 +35,7 @@
     //[self setNavgtionBarBg];
     if(kSystemVersion>=7.0)
     {
+        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
         self.navigationController.navigationBar.barTintColor = KColor;
     }
     else

@@ -8,7 +8,8 @@
 
 #import "AppDelegate.h"
 #import "RootTabBarController.h"
- 
+#import "RLViewController.h"
+
 @interface AppDelegate ()
 
 @end
@@ -25,6 +26,7 @@
     rootvc.view.frame = self.window.bounds;
     
     self.window.rootViewController = rootvc;
+//    self.window.rootViewController = [[RLViewController alloc] init];
     [self.window makeKeyAndVisible];
     return YES;
 }
