@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RootTabBarController : UITabBarController<UITabBarControllerDelegate,UITabBarDelegate>
+@interface RootTabBarController : UITabBarController<UITabBarControllerDelegate>
 
+- (UIViewController *)getCurrentSelectVC;
 @end

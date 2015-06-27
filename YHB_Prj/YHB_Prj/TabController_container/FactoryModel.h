@@ -16,4 +16,5 @@
 - (UIViewController *)getThirdViewController;
 - (UIViewController *)getFourthViewController;
 - (UIViewController *)getloginViewController;
+- (UIViewController *)getReleaseViewController;
 @end

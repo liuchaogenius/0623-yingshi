@@ -12,7 +12,7 @@
 #import "FactoryModel.h"
 #import "LSNavigationController.h"
 
-@interface RootTabBarController ()
+@interface RootTabBarController ()<UITabBarControllerDelegate>
 {
     
     NSInteger newSelectIndex;
@@ -20,7 +20,7 @@
     NSMutableArray *navArry;
     FBKVOController *loginObserver;
     FBKVOController *leftViewObserver;
-    
+    UIButton *releaseButton;
     BOOL isGoBack;
 }
 @end
@@ -36,6 +36,13 @@
     [self initTabViewController];
     [self initTabBarItem];
     [self initNotifyRegister];
+    
+    releaseButton = [[UIButton alloc] initWithFrame:CGRectMake(136, 0, 47, 49)];
+    releaseButton.backgroundColor = [UIColor redColor];
+    //    [button setBackgroundImage:[UIImage imageNamed:@"TabBarItem_nor_2"] forState:UIControlStateNormal];
+    //    [button setBackgroundImage:[UIImage imageNamed:@"TabBarItem_sel_2"] forState:UIControlStateHighlighted];
+    [releaseButton addTarget:self action:@selector(releaseRuttonItem:) forControlEvents:UIControlEventTouchUpInside];
+    [self.tabBar addSubview:releaseButton];
 }
 
 - (void)initNotifyRegister
@@ -58,6 +65,14 @@
 
     self.viewControllers = navArry;
 }
+//发布按钮事件
+- (void)releaseRuttonItem:(UIButton*)aBut
+{
+    UIViewController *testvc = [[UIViewController alloc] init];
+    [self presentViewController:testvc animated:YES completion:^{
+        
+    }];
+}
 
 - (void)initTabBarItem
 {
@@ -69,9 +84,18 @@
     }
     for(int i=0; i<navArry.count;i++)
     {
+        int imgIndex = i;
+        if(i == 2)
+        {
+            continue;
+        }
+        if(i>2)
+        {
+            imgIndex--;
+        }
         UITabBarItem *tabBarItem = self.tabBar.items[i];
-        UIImage *norimg = [UIImage imageNamed:[NSString stringWithFormat:@"TabBarItem_nor_%d",i+1]];
-        UIImage *selimg = [UIImage imageNamed:[NSString stringWithFormat:@"TabBarItem_sel_%d",i+1]];
+        UIImage *norimg = [UIImage imageNamed:[NSString stringWithFormat:@"TabBarItem_nor_%d",imgIndex+1]];
+        UIImage *selimg = [UIImage imageNamed:[NSString stringWithFormat:@"TabBarItem_sel_%d",imgIndex+1]];
 
         tabBarItem.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
         tabBarItem.title = @" ";
@@ -81,12 +105,13 @@
             selimg = [selimg imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
             tabBarItem.image = norimg;
             tabBarItem.selectedImage = selimg;
-            tabBarItem.tag = i;
+            
         }
         else
         {
             [tabBarItem setFinishedSelectedImage:selimg withFinishedUnselectedImage:norimg];
         }
+        tabBarItem.tag = imgIndex;
     }
     
     MLOG(@"tabbarHeight=%f",self.tabBar.frame.size.height);
@@ -95,17 +120,42 @@
 
 - (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController
 {
-    MLOG(@"shouldtabsel = %lu", (unsigned long)tabBarController.selectedIndex);
-    oldSelectIndex = tabBarController.selectedIndex;
+    MLOG(@"shouldtabsel = %lu", (unsigned long)self.selectedIndex);
+    if([viewController isKindOfClass:[[[FactoryModel shareFactoryModel] getReleaseViewController] class]])
+    {
+        return NO;
+    }
+    oldSelectIndex = self.selectedIndex;
     return YES;
 }
 
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
 {
     MLOG(@"tabsel = %ld", (unsigned long)tabBarController.selectedIndex);
-    newSelectIndex = tabBarController.selectedIndex;
+    newSelectIndex = self.selectedIndex;
 }
 
+
+- (UIViewController *)getCurrentSelectVC
+{
+    if(oldSelectIndex == 0)
+    {
+        return [[FactoryModel shareFactoryModel] getFirstViewController];
+    }
+    if(oldSelectIndex == 1)
+    {
+        return [[FactoryModel shareFactoryModel] getSecondViewController];
+    }
+    if(oldSelectIndex == 3)
+    {
+        return [[FactoryModel shareFactoryModel] getThirdViewController];
+    }
+    if(oldSelectIndex == 4)
+    {
+        return [[FactoryModel shareFactoryModel] getFourthViewController];
+    }
+    return nil;
+}
 
 #pragma mark show login
 - (void)showLoginViewController:(NSNotification *)aNotification

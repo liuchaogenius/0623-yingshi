@@ -11,7 +11,17 @@
 #import "SecondViewController.h"
 #import "ThirdViewController.h"
 #import "FourthViewController.h"
+#import "ReleaseViewController.h"
 
+@interface FactoryModel()
+{
+    FirstViewController *firstVC;
+    SecondViewController *secondVC;
+    ThirdViewController *thirdVC;
+    FourthViewController *fourthVC;
+    UIViewController *releaseVC;
+}
+@end
 @implementation FactoryModel
 + (FactoryModel *)shareFactoryModel
 {
@@ -30,32 +40,53 @@
 {
     UIViewController *vc1 = [self getFirstViewController];
     UIViewController *vc2 = [self getSecondViewController];
-    UIViewController *vc3 = [self getThirdViewController];
-    UIViewController *vc4 = [self getFourthViewController];
-    NSArray *arry = @[vc1,vc2,vc3,vc4];
+    UIViewController *vc3 = [self getReleaseViewController];
+    UIViewController *vc4 = [self getThirdViewController];
+    UIViewController *vc5 = [self getFourthViewController];
+    NSArray *arry = @[vc1,vc2,vc3,vc4,vc5];
     return arry;
 }
 
+- (UIViewController *)getReleaseViewController
+{
+    if(!releaseVC)
+    {
+        releaseVC = [[ReleaseViewController alloc] init];
+    }
+    return releaseVC;
+}
 - (UIViewController *)getFirstViewController
 {
-    FirstViewController *firstVC = [[FirstViewController alloc] init];
+    if(!firstVC)
+    {
+        firstVC = [[FirstViewController alloc] init];
+    }
     return firstVC;
 }
 
 - (UIViewController *)getSecondViewController
 {
-    UIViewController *secondVC = [[SecondViewController alloc] init];
+    if(!secondVC)
+    {
+        secondVC = [[SecondViewController alloc] init];
+    }
     return secondVC;
 }
 - (UIViewController *)getThirdViewController
 {
-    ThirdViewController *thirdVC = [[ThirdViewController alloc] init];
+    if(!thirdVC)
+    {
+        thirdVC = [[ThirdViewController alloc] init];
+    }
     return thirdVC;
 }
 
 - (UIViewController *)getFourthViewController
 {
-    FourthViewController *fourthVC = [[FourthViewController alloc] init];
+    if(!fourthVC)
+    {
+        fourthVC = [[FourthViewController alloc] init];
+    }
     return fourthVC;
 }
 

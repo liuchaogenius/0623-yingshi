@@ -16,6 +16,7 @@
 		ABCF2A391B3B892800C5CA48 /* SecRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABCF2A381B3B892800C5CA48 /* SecRegisterViewController.m */; };
 		ABCF2A3D1B3B935B00C5CA48 /* JKCountDownButton.m in Sources */ = {isa = PBXBuildFile; fileRef = ABCF2A3C1B3B935B00C5CA48 /* JKCountDownButton.m */; };
 		ABCF2A441B3B956D00C5CA48 /* RegisterManage.m in Sources */ = {isa = PBXBuildFile; fileRef = ABCF2A431B3B956D00C5CA48 /* RegisterManage.m */; };
+		FF026B3C1B3E7DA700218774 /* ReleaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF026B3B1B3E7DA700218774 /* ReleaseViewController.m */; };
 		FF2A6BE01A0F3780001607AC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FF2A6BDF1A0F3780001607AC /* main.m */; };
 		FF2A6BE31A0F3780001607AC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FF2A6BE21A0F3780001607AC /* AppDelegate.m */; };
 		FF2A6BE51A0F3780001607AC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF2A6BE41A0F3780001607AC /* Images.xcassets */; };
@@ -103,6 +104,8 @@
 		ABCF2A3C1B3B935B00C5CA48 /* JKCountDownButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKCountDownButton.m; sourceTree = "<group>"; };
 		ABCF2A421B3B956D00C5CA48 /* RegisterManage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterManage.h; sourceTree = "<group>"; };
 		ABCF2A431B3B956D00C5CA48 /* RegisterManage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterManage.m; sourceTree = "<group>"; };
+		FF026B3A1B3E7DA700218774 /* ReleaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReleaseViewController.h; sourceTree = "<group>"; };
+		FF026B3B1B3E7DA700218774 /* ReleaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReleaseViewController.m; sourceTree = "<group>"; };
 		FF2A6BDA1A0F3780001607AC /* YHB_Prj.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YHB_Prj.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF2A6BDE1A0F3780001607AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF2A6BDF1A0F3780001607AC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -567,6 +570,8 @@
 				FF2A6C8E1A0F3CC9001607AC /* ThirdViewController */,
 				FF2A6C8F1A0F3CC9001607AC /* SecondViewController */,
 				FF2A6C901A0F3CC9001607AC /* FirstViewController */,
+				FF026B3A1B3E7DA700218774 /* ReleaseViewController.h */,
+				FF026B3B1B3E7DA700218774 /* ReleaseViewController.m */,
 			);
 			name = UIParty;
 			sourceTree = "<group>";
@@ -751,6 +756,7 @@
 				FF2A6C791A0F3B7B001607AC /* UIImageView+WebCache.m in Sources */,
 				FF2A6C021A0F398D001607AC /* BaseViewController.m in Sources */,
 				FF2A6C301A0F3B50001607AC /* AFXMLRequestOperation.m in Sources */,
+				FF026B3C1B3E7DA700218774 /* ReleaseViewController.m in Sources */,
 				FF2A6C6C1A0F3B7B001607AC /* NSData+ImageContentType.m in Sources */,
 				FF2A6C701A0F3B7B001607AC /* SDWebImageDownloader.m in Sources */,
 				FF2A6C481A0F3B72001607AC /* JSONKit.m in Sources */,
