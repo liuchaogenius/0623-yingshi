@@ -36,11 +36,11 @@
     if(kSystemVersion>=7.0)
     {
         [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
-        self.navigationController.navigationBar.barTintColor = KColor;
+        self.navigationController.navigationBar.barTintColor = RGBCOLOR(15, 15, 15);
     }
     else
     {
-        self.navigationController.navigationBar.tintColor = KColor;
+        self.navigationController.navigationBar.tintColor = RGBCOLOR(15, 15, 15);
     }
     self.navigationController.navigationBar.alpha = 1;
     NSDictionary *attributes=[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],NSForegroundColorAttributeName,nil];

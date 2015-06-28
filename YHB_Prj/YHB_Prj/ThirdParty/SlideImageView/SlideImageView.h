@@ -11,6 +11,7 @@
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
+#import "FirstDataModels.h"
 
 @protocol SlideImageViewDelegate<NSObject>
 @optional 
@@ -42,12 +43,14 @@
 @property(nonatomic) float _angleValue;  //偏移角度
 @property(nonatomic, strong) UIColor* borderColor; //边框颜色，可以为空
 @property(nonatomic,readonly) NSMutableArray* _imageArray; //图片数组
+@property(nonatomic, strong) NSMutableArray *modelArray;//model数组
 
 - (id)initWithFrame:(CGRect)frame;
 //通过参数进行初始化，注:ZMarginValue与XMarginValue的值越接近，效果越佳,透明比率值建议设置在1000左右
 - (id)initWithFrame:(CGRect)frame ZMarginValue:(float)zMarginValue 
        XMarginValue:(float)xMarginValue AngleValue:(float)angleValue Alpha:(float)alphaValue;
-- (void)addImage:(UIImage*)image; //添加图片数据
+//- (void)addImage:(UIImage*)image; //添加图片数据
+- (void)addModel:(FirstTUserFeedsVOList *)aModel;
 - (void)setImageShadowsWtihDirectionX:(float)value_X Y:(float)value_Y Alpha:(float)alphaValue;//设置图片阴影的x,y方向的值和透明度
 - (void)reLoadUIview;   //重新加载UI
 @end

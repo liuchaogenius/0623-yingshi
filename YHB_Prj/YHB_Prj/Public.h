@@ -34,7 +34,7 @@
 #define kViewBackgroundColor RGBCOLOR(238,238,238) // 所有屏幕底色
 #define kTabbarBackgroundColor RGBCOLOR(249,249,249) //tabbar的背景色
 #define kIconNorColor RGBCOLOR(153,153,153) //所有icon未选中的颜色
-#define kIconSelectColor RGBCOLOR(52,53,55) //所有icon选中的颜色
+#define kIconSelectColor RGBCOLOR(51,51,51) //所有icon选中的颜色
 #define kLineColor RGBCOLOR(204,204,204) //所有线条的颜色
 
 #define kClearColor [UIColor clearColor]
@@ -73,6 +73,47 @@
 #define kFontBold23 [UIFont fontWithName:@"Helvetica-Bold" size:23]
 #define kFontBold24 [UIFont fontWithName:@"Helvetica-Bold" size:24]
 #define kFontBold25 [UIFont fontWithName:@"Helvetica-Bold" size:25]
+
+#define IMAGE(imageName) [UIImage imageNamed:imageName]
+
+#define kCreateLabel(outLabel,aRect,aFontsize,aColor,aContent) do{\
+    UILabel *label = [[UILabel alloc] initWithFrame:aRect];\
+    label.backgroundColor = [UIColor clearColor];\
+    label.font = [UIFont systemFontOfSize:aFontsize];\
+    label.textColor = aColor;\
+    label.text = aContent;\
+    outLabel = label;\
+}while(0)
+
+#define kCreateImgView(outImgView,aFrame,aImg) do{\
+    UIImageView *imgView = [[UIImageView alloc] initWithFrame:aFrame];\
+    if (aImg){\
+        imgView.image = aImg;\
+    }\
+    outImgView = imgView;\
+}while(0)
+
+
+#define kCreateButton(outButton,aFrame,aTitleContent,aNorIimg,bgNorImg,aTitleFontSize,aTitleNorColor) do{\
+    UIButton *button = [[UIButton alloc] initWithFrame:aFrame];\
+    button.backgroundColor = [UIColor clearColor];\
+    if(aTitleContent){\
+        [button setTitle:aTitleContent forState:UIControlStateNormal];\
+    }\
+    if(aNorIimg){\
+        [button setImage:aNorIimg forState:UIControlStateNormal];\
+    }\
+    if(bgNorImg){\
+        [button setImage:bgNorImg forState:UIControlStateNormal];\
+    }\
+    if(aTitleFontSize>0){\
+        button.titleLabel.font = [UIFont systemFontOfSize:aTitleFontSize];\
+    }\
+    if(aTitleNorColor){\
+        [button setTitleColor:aTitleNorColor forState:UIControlStateNormal];\
+    }\
+    outButton = button;\
+}while(0)
 
 #define kNSUDefaultSaveVauleAndKey(value,key) [[NSUserDefaults standardUserDefaults] setObject:value forKey:key]
 #define kNSUDefaultReadKey(key) [[NSUserDefaults standardUserDefaults] valueForKey:key]

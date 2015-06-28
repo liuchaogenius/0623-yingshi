@@ -7,6 +7,7 @@
 //
 
 #import "SlideImageView.h"
+#import "FirstView.h"
 
 @interface SlideScrollView : UIScrollView <SlideScrollViewDelegate>
 @property(nonatomic) NSArray* imageViewArr; //拖动的视图数组
@@ -25,7 +26,7 @@
             index = 0;
         if(index > imageViewArr.count -1)
             index = imageViewArr.count - 1;
-        UIImageView* imageView = [imageViewArr objectAtIndex:index]; //获取点中的图片
+        FirstView* imageView = [imageViewArr objectAtIndex:index]; //获取点中的图片
         imageView.layer.zPosition = -10;
     }
 }
@@ -39,7 +40,7 @@
             index = 0;
         if(index > imageViewArr.count -1)
             index = imageViewArr.count - 1;
-        UIImageView* imageView = [imageViewArr objectAtIndex:index];
+        FirstView* imageView = [imageViewArr objectAtIndex:index];
         imageView.layer.zPosition = 0;
         if([SlideImagedelegate respondsToSelector:@selector(SlideScrollViewDidEndClick:)]) //执行点击处理函数
             [SlideImagedelegate SlideScrollViewDidEndClick:index];
@@ -77,7 +78,7 @@
         _shadowAlpha = 0;
         _shadowValueX = 0;
         _shadowValueY = 0;
-        _imageArray = [[NSMutableArray alloc]init ];
+        self.modelArray = [[NSMutableArray alloc] init];
         delegate = nil;
         //设置子视图透视投影
         CATransform3D sublayerTransform = CATransform3DIdentity; //单位矩阵
@@ -114,7 +115,7 @@
         _shadowAlpha = 0;
         _shadowValueX = 0;
         _shadowValueY = 0;
-        _imageArray = [[NSMutableArray alloc]init ];
+        self.modelArray = [[NSMutableArray alloc] init];
         delegate = nil;
         //设置子视图透视投影
         CATransform3D sublayerTransform = CATransform3DIdentity; //单位矩阵
@@ -149,7 +150,7 @@
         _shadowAlpha = 0;
         _shadowValueX = 0;
         _shadowValueY = 0;
-        _imageArray = [[NSMutableArray alloc]init ];
+        self.modelArray = [[NSMutableArray alloc] init];
         delegate = nil;
         //设置子视图透视投影
         CATransform3D sublayerTransform = CATransform3DIdentity; //单位矩阵
@@ -167,10 +168,15 @@
     _shadowValueY = value_Y;
 }
 
-- (void) addImage:(UIImage *)image //添加图片数据
+//- (void) addImage:(UIImage *)image //添加图片数据
+//{
+//    UIImage* resizeImage = [self ImageWithSize:image toSize:self.frame.size];//调整图片尺寸
+//    [_imageArray addObject:resizeImage];
+//}
+
+- (void)addModel:(FirstTUserFeedsVOList *)aModel
 {
-    UIImage* resizeImage = [self ImageWithSize:image toSize:self.frame.size];//调整图片尺寸
-    [_imageArray addObject:resizeImage];
+    [self.modelArray addObject:aModel];
 }
 
 - (void)reLoadUIview   //重新加载UI
@@ -178,18 +184,26 @@
     //清理滚动视图数据
     if(_scrollImageArray.count > 0)
     {
-        for(UIImageView* imageView in _scrollImageArray)
+        for(FirstView* imageView in _scrollImageArray)
             [imageView removeFromSuperview];
         [_scrollImageArray removeAllObjects];
     }
     //清理弹压视图数据
     if(_imageViewArray.count > 0) 
     {
-        for(UIImageView* imageView in _imageViewArray)
+        for(FirstView* imageView in _imageViewArray)
             [imageView removeFromSuperview];
         [_imageViewArray removeAllObjects];
     }
-    if(_imageArray.count > 0) //有数据
+//    if(_imageArray.count > 0) //有数据
+//    {
+//        _index = 0;
+//        //加载滚动视图数据
+//        [self loadScrollView];
+//        //加载弹压视图数据
+//        [self loadImageView];
+//    }
+    if (self.modelArray.count>0)
     {
         _index = 0;
         //加载滚动视图数据
@@ -206,12 +220,13 @@
 {
     CGSize viewSize = self.frame.size;
     float width = viewSize.width; //图宽
-    for(int i=0; i<_imageArray.count; i++)
+//    for(int i=0; i<_imageArray.count; i++)
+    for(int i=0; i<self.modelArray.count; i++)
     {
-        UIImage* image = [_imageArray objectAtIndex:i];
+        FirstTUserFeedsVOList *model = [self.modelArray objectAtIndex:i];
         CGPoint point = CGPointMake(i*width, 0); //坐标
-        UIImageView* imageView = [[UIImageView alloc]initWithFrame:CGRectMake(point.x, point.y, viewSize.width, viewSize.height)];
-        imageView.image = image;
+        FirstView* imageView = [[FirstView alloc]initWithFrame:CGRectMake(point.x, point.y, viewSize.width, viewSize.height)];
+        imageView.backgroundColor = [UIColor whiteColor];
         imageView.layer.transform = CATransform3DMakeRotation(_angleValue, 0, -1, 0);//设置角度
         if(i != 0 )
             imageView.hidden = YES;
@@ -220,14 +235,15 @@
         imageView.layer.shadowPath = shadowPath.CGPath;
         imageView.layer.shadowOffset = CGSizeMake(_shadowValueX, _shadowValueY);
         imageView.layer.shadowOpacity = _shadowAlpha;
+        [imageView setViewData:model];
         //设置边框
-        if(self.borderColor)
-        {
-            imageView.layer.borderColor = self.borderColor.CGColor;
-            imageView.layer.borderWidth = 2.f;
-        }
-        else
-            imageView.layer.borderWidth = 0.f;
+//        if(self.borderColor)
+//        {
+//            imageView.layer.borderColor = self.borderColor.CGColor;
+//            imageView.layer.borderWidth = 2.f;
+//        }
+//        else
+//            imageView.layer.borderWidth = 0.f;
         
         //添加到视图与数组中
         [_scrollImageArray addObject:imageView];
@@ -255,16 +271,17 @@
     float width = self.frame.size.width;
     float height = self.frame.size.height; 
     //加载循环
-    for(int i=0; i<_imageArray.count; i++)
+//    for(int i=0; i<_imageArray.count; i++)
+    for(int i=0; i<self.modelArray.count; i++)
     {
-        UIImage* image = [_imageArray objectAtIndex:i];
+        FirstTUserFeedsVOList *model = [self.modelArray objectAtIndex:i];
         // 设置每张图片的坐标，z值和透明度
         CGPoint point = CGPointMake(i*width/_xMarginValue, 0); 
         float zPosition = -i*width/_zMarginValue;
         float alpha = 1 - i*width/_alphaValue;
         
-        UIImageView* imageView = [[UIImageView alloc]initWithFrame:CGRectMake(point.x, point.y, width,height)];
-        imageView.image = image;
+        FirstView* imageView = [[FirstView alloc]initWithFrame:CGRectMake(point.x, point.y, width,height)];
+        imageView.backgroundColor = [UIColor whiteColor];
         imageView.layer.transform = CATransform3DMakeRotation(_angleValue, 0, -1, 0);//设置角度
         imageView.layer.zPosition = zPosition; // Z坐标
         imageView.alpha = alpha;
@@ -273,14 +290,15 @@
         imageView.layer.shadowPath = shadowPath.CGPath;
         imageView.layer.shadowOffset = CGSizeMake(_shadowValueX, _shadowValueY);
         imageView.layer.shadowOpacity = _shadowAlpha;
+        [imageView setViewData:model];
         //设置边框
-        if(self.borderColor)
-        {
-            imageView.layer.borderColor = self.borderColor.CGColor;
-            imageView.layer.borderWidth = 2.f;
-        }
-        else
-            imageView.layer.borderWidth = 0.f;
+//        if(self.borderColor)
+//        {
+//            imageView.layer.borderColor = self.borderColor.CGColor;
+//            imageView.layer.borderWidth = 2.f;
+//        }
+//        else
+//            imageView.layer.borderWidth = 0.f;
         //添加到视图与数组中
         if(i == 0)
             imageView.hidden = YES;
@@ -309,7 +327,7 @@
     for(int i=0; i<_imageViewArray.count; i++)
     {
         //调整滚动视图图片的角度
-        UIImageView* scrollImageView = [_scrollImageArray objectAtIndex:i];
+        FirstView* scrollImageView = [_scrollImageArray objectAtIndex:i];
         float currOrigin_x = i * width; //当前图片的x坐标
         float angleValue = (offset_x-currOrigin_x)/width - _angleValue;
         if(angleValue < -_angleValue) //设置偏移极限
@@ -327,7 +345,7 @@
         
         //调整弹压视图图片的角度
         float range_x = (currOrigin_x-offset_x)/_xMarginValue;
-        UIImageView* moveImageView = [_imageViewArray objectAtIndex:i];
+        FirstView* moveImageView = [_imageViewArray objectAtIndex:i];
         moveImageView.frame = CGRectMake(range_x, 0, width, height);
         if(range_x <= 0) // 如果超过当前滑动视图便隐藏
             moveImageView.hidden = YES;
@@ -351,7 +369,7 @@
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
-    for(UIImageView* imageView in _scrollImageArray)  //调整所有图片的z值
+    for(FirstView* imageView in _scrollImageArray)  //调整所有图片的z值
         imageView.layer.zPosition = 0;
 }
 

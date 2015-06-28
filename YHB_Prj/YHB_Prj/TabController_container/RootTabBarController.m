@@ -11,6 +11,7 @@
 #import "ViewInteraction.h"
 #import "FactoryModel.h"
 #import "LSNavigationController.h"
+#import "YHBAlbumViewController.h"
 
 @interface RootTabBarController ()<UITabBarControllerDelegate>
 {
@@ -21,6 +22,8 @@
     FBKVOController *loginObserver;
     FBKVOController *leftViewObserver;
     UIButton *releaseButton;
+    YHBAlbumViewController *testvc;
+    UINavigationController *testnav;
     BOOL isGoBack;
 }
 @end
@@ -37,12 +40,17 @@
     [self initTabBarItem];
     [self initNotifyRegister];
     
-    releaseButton = [[UIButton alloc] initWithFrame:CGRectMake(136, 0, 47, 49)];
-    releaseButton.backgroundColor = [UIColor redColor];
+    releaseButton = [[UIButton alloc] initWithFrame:CGRectMake(kMainScreenWidth/2-16, 49/2-16, 32, 32)];
+    [releaseButton setImage:IMAGE(@"takePhoto") forState:UIControlStateNormal];
     //    [button setBackgroundImage:[UIImage imageNamed:@"TabBarItem_nor_2"] forState:UIControlStateNormal];
     //    [button setBackgroundImage:[UIImage imageNamed:@"TabBarItem_sel_2"] forState:UIControlStateHighlighted];
     [releaseButton addTarget:self action:@selector(releaseRuttonItem:) forControlEvents:UIControlEventTouchUpInside];
     [self.tabBar addSubview:releaseButton];
+    
+    UIView *backView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kMainScreenWidth, 49)];
+    backView.backgroundColor = KColor;
+    [self.tabBar insertSubview:backView atIndex:0];
+    self.tabBar.opaque = YES;
 }
 
 - (void)initNotifyRegister
@@ -68,8 +76,17 @@
 //发布按钮事件
 - (void)releaseRuttonItem:(UIButton*)aBut
 {
-    UIViewController *testvc = [[UIViewController alloc] init];
-    [self presentViewController:testvc animated:YES completion:^{
+    if(!testvc)
+    {
+        testvc = nil;
+    }
+    if(!testnav)
+    {
+        testnav = nil;
+    }
+    testvc = [[YHBAlbumViewController alloc] initWithBlock:nil andPhotoCount:4];
+    testnav = [[LSNavigationController alloc] initWithRootViewController:testvc];
+    [self presentViewController:testnav animated:YES completion:^{
         
     }];
 }
