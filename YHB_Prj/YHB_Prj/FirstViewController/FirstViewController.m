@@ -9,6 +9,7 @@
 #import "FirstViewController.h"
 #import "SlideImageView.h"
 #import "FirstManage.h"
+#import "AppDelegate.h"
 
 @interface FirstViewController ()<SlideImageViewDelegate>
 @property(nonatomic, strong) SlideImageView *slideImageView;
@@ -17,11 +18,31 @@
 
 @implementation FirstViewController
 
+- (void)panGestureRecognized:(UIPanGestureRecognizer *)sender
+{
+    AppDelegate *de = [UIApplication sharedApplication].delegate;
+    [de.FVC panGestureRecognized:sender];
+}
+
+- (void)touchClass
+{
+    AppDelegate *de = [UIApplication sharedApplication].delegate;
+    [de.FVC presentMenuViewController];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = RGBCOLOR(40, 41, 41);
     [self settitleLabel:@"广场"];
-    [self setLeftButton:IMAGE(@"class") title:nil target:self action:@selector(touchClass)];
+    
+    UIButton *leftBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 24, 24)];
+    [leftBtn addTarget:self action:@selector(touchClass) forControlEvents:UIControlEventTouchDown];
+    [leftBtn setImage:IMAGE(@"class") forState:UIControlStateNormal];
+    UIBarButtonItem *leftBI = [[UIBarButtonItem alloc] initWithCustomView:leftBtn];
+    self.navigationItem.leftBarButtonItem = leftBI;
+    
+    UIImageView *bgImgView = [[UIImageView alloc] initWithFrame:self.view.bounds];
+    bgImgView.image = IMAGE(@"bg");
+    [self.view addSubview:bgImgView];
     
     CGRect rect = {{(kMainScreenWidth-265)/2.0,40},{265,380}};
     self.slideImageView = [[SlideImageView alloc]initWithFrame:rect ZMarginValue:5 XMarginValue:10 AngleValue:0.0 Alpha:1000];
@@ -41,11 +62,10 @@
     } andFail:^(NSString *aStr) {
         
     }];
-}
-
-- (void)touchClass
-{
     
+    UIPanGestureRecognizer *panGes = [[UIPanGestureRecognizer alloc]
+                                      initWithTarget:self action:@selector(panGestureRecognized:)];
+    [self.view addGestureRecognizer:panGes];
 }
 
 - (void)SlideImageViewDidClickWithIndex:(int)index

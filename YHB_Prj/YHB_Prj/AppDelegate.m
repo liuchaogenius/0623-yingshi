@@ -8,7 +8,8 @@
 
 #import "AppDelegate.h"
 #import "RootTabBarController.h"
-#import "RLViewController.h"
+#import "MenuViewController.h"
+#import "LSNavigationController.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,7 @@
 @implementation AppDelegate
 
 @synthesize rootvc;
+@synthesize FVC;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -25,7 +27,9 @@
     rootvc = [[RootTabBarController alloc] init];
     rootvc.view.frame = self.window.bounds;
     
-    self.window.rootViewController = rootvc;
+    FVC = [[REFrostedViewController alloc] initWithContentViewController:rootvc menuViewController:[[MenuViewController alloc]init]];
+    LSNavigationController *nav = [[LSNavigationController alloc] initWithRootViewController:FVC];
+    self.window.rootViewController = nav;
 //    self.window.rootViewController = [[RLViewController alloc] init];
     [self.window makeKeyAndVisible];
     return YES;

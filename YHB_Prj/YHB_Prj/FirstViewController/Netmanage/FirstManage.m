@@ -22,7 +22,7 @@ int pageSize;
     NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"%d", pageNo],@"pageNo",[NSString stringWithFormat:@"%d", pageSize],@"pageSize",nil];
     kHubRequestUrl(@"userFeeds/getHome.htm", firstUrl);
     [NetManager requestWith:dict url:firstUrl method:@"POST" operationKey:nil parameEncoding:AFJSONParameterEncoding succ:^(NSDictionary *successDict) {
-        MLOG(@"%@", successDict);
+//        MLOG(@"%@", successDict);
         FirstModel *model = [FirstModel modelObjectWithDictionary:successDict];
         NSArray *array = model.data.tUserFeedsVOList;
         aSuccBlock(array);

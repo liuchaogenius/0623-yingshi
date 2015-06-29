@@ -40,12 +40,17 @@
     [self initTabBarItem];
     [self initNotifyRegister];
     
-    releaseButton = [[UIButton alloc] initWithFrame:CGRectMake(kMainScreenWidth/2-16, 49/2-16, 32, 32)];
-    [releaseButton setImage:IMAGE(@"takePhoto") forState:UIControlStateNormal];
+    releaseButton = [[UIButton alloc] initWithFrame:CGRectMake(kMainScreenWidth/2-kMainScreenWidth/10, 0, kMainScreenWidth/5, 49)];
+//    [releaseButton setImage:IMAGE(@"takePhoto") forState:UIControlStateNormal];
     //    [button setBackgroundImage:[UIImage imageNamed:@"TabBarItem_nor_2"] forState:UIControlStateNormal];
     //    [button setBackgroundImage:[UIImage imageNamed:@"TabBarItem_sel_2"] forState:UIControlStateHighlighted];
+    UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(kMainScreenWidth/2-16, 49/2-16, 32, 32)];
+    [imgView setImage:IMAGE(@"takePhoto")];
+
     [releaseButton addTarget:self action:@selector(releaseRuttonItem:) forControlEvents:UIControlEventTouchUpInside];
     [self.tabBar addSubview:releaseButton];
+    [self.tabBar addSubview:imgView];
+    
     
     UIView *backView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kMainScreenWidth, 49)];
     backView.backgroundColor = KColor;

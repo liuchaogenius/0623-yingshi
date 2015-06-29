@@ -1,21 +1,27 @@
 //
-//  FifthViewController.m
+//  ResultViewController.m
 //  YHB_Prj
 //
-//  Created by  striveliu on 14-11-9.
-//  Copyright (c) 2014年 striveliu. All rights reserved.
+//  Created by Johnny's on 15/6/28.
+//  Copyright (c) 2015年 striveliu. All rights reserved.
 //
 
-#import "FifthViewController.h"
+#import "ResultViewController.h"
 
-@interface FifthViewController ()
+@interface ResultViewController ()
 
 @end
 
-@implementation FifthViewController
+@implementation ResultViewController
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    self.navigationController.navigationBarHidden = NO;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {

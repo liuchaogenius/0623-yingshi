@@ -36,11 +36,13 @@
 
 -(void)createView
 {
-    kCreateImgView(mainImgView, CGRectMake(0, 0, self.width, self.width), nil);
+    kCreateImgView(mainImgView, CGRectMake(0, 0, self.width, self.width), IMAGE(@"model"));
+    mainImgView.contentMode = UIViewContentModeScaleToFill;
     [self addSubview:mainImgView];
     
     UIView *maskingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.width, self.width)];
     maskingView.backgroundColor = [UIColor blackColor];
+    maskingView.opaque = YES;
     maskingView.alpha = 0.3;
     [self addSubview:maskingView];
     
