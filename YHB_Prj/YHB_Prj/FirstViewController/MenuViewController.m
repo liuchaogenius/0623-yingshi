@@ -9,6 +9,7 @@
 #import "MenuViewController.h"
 #import "AppDelegate.h"
 #import "ResultViewController.h"
+#import "IndustryManage.h"
 #define kViewWidthThis 270
 @interface MenuViewController ()
 {
@@ -17,6 +18,7 @@
     UISegmentedControl *segmentedControl;
 }
 @property(nonatomic, strong) UITableView *myTableView;
+@property(nonatomic, strong) IndustryManage *manage;
 @end
 
 @implementation MenuViewController
@@ -24,7 +26,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor blackColor];
-    self.view.alpha = 0.0;
+//    self.view.alpha = 0.3;
+    
+//    UIView *topView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kViewWidthThis, 114)];
+//    topView.backgroundColor = [UIColor blackColor];
+//    topView.alpha = 1;
+//    [self.view addSubview:topView];
     
     kCreateImgView(searchImgView, CGRectMake(12, 40, 19, 20), IMAGE(@"search"));
     [self.view addSubview:searchImgView];
@@ -49,6 +56,13 @@
     [segmentedControl setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor], UITextAttributeTextColor, kFont14,UITextAttributeFont,nil] forState:UIControlStateSelected];
     [segmentedControl addTarget:self action:@selector(change:) forControlEvents:UIControlEventValueChanged];
     [self.view addSubview:segmentedControl];
+    
+    self.manage = [[IndustryManage alloc] init];
+    [self.manage getIndustryArray:^(NSArray *aArray) {
+        
+    } andFail:^(NSString *aStr) {
+        
+    }];
     
 //    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(50, 200, 50, 50)];
 //    btn.backgroundColor = [UIColor whiteColor];

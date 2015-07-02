@@ -40,7 +40,7 @@
     UIBarButtonItem *leftBI = [[UIBarButtonItem alloc] initWithCustomView:leftBtn];
     self.navigationItem.leftBarButtonItem = leftBI;
     
-    UIImageView *bgImgView = [[UIImageView alloc] initWithFrame:self.view.bounds];
+    UIImageView *bgImgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, -64, kMainScreenWidth, kMainScreenHeight)];
     bgImgView.image = IMAGE(@"bg");
     [self.view addSubview:bgImgView];
     

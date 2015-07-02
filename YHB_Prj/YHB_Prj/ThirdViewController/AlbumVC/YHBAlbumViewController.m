@@ -14,6 +14,9 @@
 #define kMainScreenWidth  [UIScreen mainScreen].bounds.size.width
 
 @interface YHBAlbumViewController ()<UITableViewDataSource, UITableViewDelegate>
+{
+    BOOL isFirst;
+}
 @property(nonatomic, strong) void(^ myBlock)(NSArray *array);
 @property(nonatomic, assign) int photoCount;
 
@@ -25,11 +28,12 @@
 
 @implementation YHBAlbumViewController
 
-- (instancetype)initWithBlock:(void(^)(NSArray *aArray))aBlock andPhotoCount:(int)aPhotoCount
+- (instancetype)initWithBlock:(void(^)(NSArray *aArray))aBlock andPhotoCount:(int)aPhotoCount isFirst:(BOOL)aisFirst
 {
     if (self = [super init]) {
         self.myBlock = aBlock;
         _photoCount = aPhotoCount;
+        isFirst = aisFirst;
     }
     return self;
 }
@@ -143,7 +147,7 @@
     NSArray *array = [self.photoArray objectAtIndex:indexPath.row];
     ALAssetsGroup *group = [self.albumArray objectAtIndex:indexPath.row];
     NSString *title = [group valueForProperty:ALAssetsGroupPropertyName];
-    [self.navigationController pushViewController:[[YHBPhotoViewController alloc] initWithPhotoArray:array andTitle:title andBlock:self.myBlock andPhotoCount:self.photoCount] animated:YES];
+    [self.navigationController pushViewController:[[YHBPhotoViewController alloc] initWithPhotoArray:array andTitle:title andBlock:self.myBlock andPhotoCount:self.photoCount isFirst:isFirst] animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

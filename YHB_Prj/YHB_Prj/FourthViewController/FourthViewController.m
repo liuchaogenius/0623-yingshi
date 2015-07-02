@@ -9,6 +9,9 @@
 #import "FourthViewController.h"
 #import "FirstTableViewCell.h"
 #import "SecondTableViewCell.h"
+#import "InviteViewController.h"
+#import "SettingsViewController.h"
+#import "DetailViewController.h"
 
 @interface FourthViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property(nonatomic, strong) UITableView *myTableView;
@@ -82,6 +85,28 @@
         }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
+    }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section==0)
+    {
+        DetailViewController *vc = [[DetailViewController alloc] initWithIsMine:YES];
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    if (indexPath.section==2)
+    {
+        InviteViewController *vc = [[InviteViewController alloc] init];
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    if (indexPath.section==3)
+    {
+        SettingsViewController *vc = [[SettingsViewController alloc] init];
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
     }
 }
 

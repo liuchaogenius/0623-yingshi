@@ -19,6 +19,7 @@
 {
     NSArray *temPhotoArray;
     UIActivityIndicatorView *activityView;
+    BOOL isFirst;
 }
 @property(nonatomic, strong) void(^ myBlock)(NSArray *array);
 @property(nonatomic, assign) int photoCount;
@@ -34,12 +35,20 @@
 
 @implementation YHBPhotoViewController
 
-- (instancetype)initWithPhotoArray:(NSArray *)aPhotoArray andTitle:(NSString *)aTitle andBlock:(void(^)(NSArray *aArray))aBlock andPhotoCount:(int)aPhotoCount
+- (instancetype)initWithPhotoArray:(NSArray *)aPhotoArray andTitle:(NSString *)aTitle andBlock:(void(^)(NSArray *aArray))aBlock andPhotoCount:(int)aPhotoCount isFirst:(BOOL)aIsFirst
 {
     if (self = [super init]) {
         temPhotoArray = aPhotoArray;
+        isFirst = aIsFirst;
         self.myTitle = aTitle;
-        self.title = aTitle;
+        if (isFirst)
+        {
+            self.title = @"请选择一张照片作为封面";
+        }
+        else
+        {
+            self.title = aTitle;
+        }
         self.myBlock = aBlock;
         self.photoCount = aPhotoCount;
     }
@@ -259,7 +268,14 @@
 {
     if (_currentSelectCount==0)
     {
-        self.title = _myTitle;
+        if (isFirst)
+        {
+            self.title = @"请选择一张照片作为封面";
+        }
+        else
+        {
+            self.title = _myTitle;
+        }
     }
     else
     {

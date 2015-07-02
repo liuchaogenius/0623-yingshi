@@ -43,7 +43,7 @@
     {
         self.navigationController.navigationBar.tintColor = RGBCOLOR(15, 15, 15);
     }
-    self.navigationController.navigationBar.alpha = 1;
+    self.navigationController.navigationBar.alpha = 0.9;
     NSDictionary *attributes=[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],NSForegroundColorAttributeName,nil];
     [self.navigationController.navigationBar setTitleTextAttributes:attributes];
     

@@ -89,7 +89,7 @@
     {
         testnav = nil;
     }
-    testvc = [[YHBAlbumViewController alloc] initWithBlock:nil andPhotoCount:4];
+    testvc = [[YHBAlbumViewController alloc] initWithBlock:nil andPhotoCount:1 isFirst:YES];
     testnav = [[LSNavigationController alloc] initWithRootViewController:testvc];
     [self presentViewController:testnav animated:YES completion:^{
         

@@ -93,6 +93,14 @@
     outImgView = imgView;\
 }while(0)
 
+#define kCreateTextField(outTextField,aFrame,aPlaceHolder,aTitleFontSize) do{\
+    UITextField *textField = [[UITextField alloc] initWithFrame:aFrame];\
+    textField.placeholder = aPlaceHolder;\
+    if(aTitleFontSize>0){\
+        textField.font = [UIFont systemFontOfSize:aTitleFontSize];\
+    }\
+    outTextField = textField;\
+}while(0)
 
 #define kCreateButton(outButton,aFrame,aTitleContent,aNorIimg,bgNorImg,aTitleFontSize,aTitleNorColor) do{\
     UIButton *button = [[UIButton alloc] initWithFrame:aFrame];\

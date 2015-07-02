@@ -7,9 +7,11 @@
 //
 
 #import "ResultViewController.h"
+#import "ResultTableViewCell.h"
+#import "SVPullToRefresh.h"
 
-@interface ResultViewController ()
-
+@interface ResultViewController ()<UITableViewDataSource, UITableViewDelegate>
+@property (nonatomic, strong) UITableView *myTableView;
 @end
 
 @implementation ResultViewController
@@ -21,7 +23,58 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+//    self.view.backgroundColor = [UIColor blackColor];
+    
+    UIImageView *bgImgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, -64, kMainScreenWidth, kMainScreenHeight)];
+    bgImgView.image = IMAGE(@"bg");
+    [self.view addSubview:bgImgView];
+    
+    self.myTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kMainScreenWidth, kMainScreenHeight-64)];
+    self.myTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.myTableView.backgroundColor = [UIColor clearColor];
+    self.myTableView.delegate = self;
+    self.myTableView.dataSource = self;
+    [self.view addSubview:self.myTableView];
+    
+    [self addTableViewTrag];
+}
+
+#pragma mark 增加上拉下拉
+- (void)addTableViewTrag
+{
+    __weak ResultViewController *weakself = self;
+    [weakself.myTableView addPullToRefreshWithActionHandler:^{
+        [weakself.myTableView.pullToRefreshView stopAnimating];
+
+    }];
+    
+    
+    [weakself.myTableView addInfiniteScrollingWithActionHandler:^{
+        [weakself.myTableView.infiniteScrollingView stopAnimating];
+    }];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return kMainScreenWidth-40+20+40;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 20;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *cellID = @"resultCell";
+    ResultTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+    if (!cell)
+    {
+        cell = [[ResultTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+    }
+    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    return cell;
 }
 
 - (void)didReceiveMemoryWarning {

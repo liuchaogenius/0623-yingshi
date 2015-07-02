@@ -10,5 +10,5 @@
 
 @interface YHBAlbumViewController : BaseViewController
 
-- (instancetype)initWithBlock:(void(^)(NSArray *aArray))aBlock andPhotoCount:(int)aPhotoCount;
+- (instancetype)initWithBlock:(void(^)(NSArray *aArray))aBlock andPhotoCount:(int)aPhotoCount isFirst:(BOOL)aisFirst;
 @end
