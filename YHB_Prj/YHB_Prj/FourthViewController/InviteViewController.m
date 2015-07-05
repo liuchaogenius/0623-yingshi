@@ -23,7 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    [self setTitle:@"我的邀请码"];
+    [self setTitle:@"我的邀请卡"];
     
     kCreateImgView(inviteImgView, CGRectMake(kMainScreenWidth/2-70, 80, 140, 68), IMAGE(@"invite"));
     [self.view addSubview:inviteImgView];

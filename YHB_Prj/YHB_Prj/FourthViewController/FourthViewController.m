@@ -77,7 +77,7 @@
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         if (indexPath.section==2)
         {
-            cell.textLabel.text = @"我的邀请码";
+            cell.textLabel.text = @"我的邀请卡";
         }
         else
         {

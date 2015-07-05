@@ -9,11 +9,14 @@
 #import "DetailViewController.h"
 #import "DOTableViewCell.h"
 #import "EditViewController.h"
+#import "BGTableViewCell.h"
+#import "AddBGViewController.h"
 
 
 @interface DetailViewController ()<UITableViewDataSource, UITableViewDelegate>
 {
     BOOL isMine;
+    int bgCount;
 }
 
 @property(nonatomic, strong) UITableView *myTableView;
@@ -32,6 +35,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    bgCount=2;
     
     int tableH;
     if (isMine)
@@ -63,7 +67,7 @@
     }
     else
     {
-        return 2;
+        return bgCount+1;
     }
 }
 
@@ -94,7 +98,14 @@
     }
     else
     {
-        return 80;
+        if (isMine && indexPath.row==bgCount)
+        {
+            return 40;
+        }
+        else
+        {
+            return 92;
+        }
     }
 }
 
@@ -169,7 +180,29 @@
     }
     else
     {
-
+        if (isMine && indexPath.row==bgCount)
+        {
+            UITableViewCell *cell = [[UITableViewCell alloc] init];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            UILabel *la = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, kMainScreenWidth, 40)];
+            la.text = @"添加职业背景";
+            la.font = kFont16;
+            la.textAlignment = NSTextAlignmentCenter;
+            la.textColor = RGBCOLOR(0, 183, 210);
+            [cell addSubview:la];
+            return cell;
+        }
+        else
+        {
+            static NSString *bgCell = @"bgCell";
+            BGTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:bgCell];
+            if (!cell)
+            {
+                cell = [[BGTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:bgCell];
+            }
+            
+            return cell;
+        }
     }
     
     return [UITableViewCell new];
@@ -188,6 +221,11 @@
         {
             
         }
+    }
+    if (indexPath.section==1 && isMine && indexPath.row==bgCount)
+    {
+        AddBGViewController *vc = [[AddBGViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
     }
 }
 

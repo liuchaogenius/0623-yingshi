@@ -17,6 +17,7 @@
     UITextField *mailTF;
     UILabel *textLabel1;
     UILabel *textLabel2;
+    UIButton *sureBtn;
 }
 @end
 
@@ -62,6 +63,21 @@
     
     UIView *lineView3 = [self createLineView:CGRectMake(12, textLabel1.bottom, kMainScreenWidth-12, 0.25) lineColor:[UIColor lightGrayColor]];
     [bgView addSubview:lineView3];
+    
+    kCreateLabel(textLabel2, CGRectMake(textLabel1.left, textLabel1.bottom, textLabel1.width, textLabel1.height), 16, RGBCOLOR(102, 102, 102), @"邮箱");
+    [bgView addSubview:textLabel2];
+    
+    kCreateTextField(mailTF, CGRectMake(phoneTF.left, phoneTF.bottom, jobTF.width, jobTF.height), nil, 16);
+    [bgView addSubview:mailTF];
+    
+    UIView *lineView4 = [self createLineView:CGRectMake(0, mailTF.bottom, kMainScreenWidth, 0.25) lineColor:[UIColor lightGrayColor]];
+    [bgView addSubview:lineView4];
+    
+    kCreateButton(sureBtn, CGRectMake(12, bgView.bottom+25, kMainScreenWidth-24, 40), @"确定", nil, nil, 14, [UIColor whiteColor]);
+    sureBtn.backgroundColor = kBlueColor;
+    sureBtn.layer.cornerRadius = 2.5;
+    [self.view addSubview:sureBtn];
+
 }
 
 - (UIView *)createLineView:(CGRect)aFrame lineColor:(UIColor *)aColor

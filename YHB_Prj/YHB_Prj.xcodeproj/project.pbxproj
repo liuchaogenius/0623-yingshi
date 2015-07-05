@@ -18,8 +18,11 @@
 		AB45C4B11B3F9B95000F48FB /* ReleaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB45C4B01B3F9B95000F48FB /* ReleaseViewController.m */; };
 		AB4863B91B411B6200120CE7 /* InviteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4863B81B411B6200120CE7 /* InviteViewController.m */; };
 		AB4863BC1B411F7500120CE7 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4863BB1B411F7500120CE7 /* SettingsViewController.m */; };
+		AB4BEF481B47F702003ECA98 /* BGTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4BEF471B47F702003ECA98 /* BGTableViewCell.m */; };
+		AB4BEF4D1B47FBD6003ECA98 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4BEF4A1B47FBD6003ECA98 /* DetailViewController.m */; };
+		AB4BEF4E1B47FBD6003ECA98 /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4BEF4C1B47FBD6003ECA98 /* EditViewController.m */; };
+		AB4BEF511B47FC12003ECA98 /* AddBGViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4BEF501B47FC12003ECA98 /* AddBGViewController.m */; };
 		AB4EF54F1B4230810011D76E /* ResultTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4EF54E1B4230810011D76E /* ResultTableViewCell.m */; };
-		AB602EE01B439D5E00A71D15 /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB602EDF1B439D5E00A71D15 /* EditViewController.m */; };
 		AB829B4C1B4041B500594478 /* ResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB829B4B1B4041B500594478 /* ResultViewController.m */; };
 		AB9BF8AC1B3D966200FE7099 /* SlideImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB9BF8AB1B3D966200FE7099 /* SlideImageView.m */; };
 		AB9D13061B3BE41B00208E3A /* ThrRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB9D13051B3BE41B00208E3A /* ThrRegisterViewController.m */; };
@@ -42,7 +45,6 @@
 		ABCF2A391B3B892800C5CA48 /* SecRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABCF2A381B3B892800C5CA48 /* SecRegisterViewController.m */; };
 		ABCF2A3D1B3B935B00C5CA48 /* JKCountDownButton.m in Sources */ = {isa = PBXBuildFile; fileRef = ABCF2A3C1B3B935B00C5CA48 /* JKCountDownButton.m */; };
 		ABCF2A441B3B956D00C5CA48 /* RegisterManage.m in Sources */ = {isa = PBXBuildFile; fileRef = ABCF2A431B3B956D00C5CA48 /* RegisterManage.m */; };
-		ABD1874A1B42D50B00912F87 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABD187491B42D50B00912F87 /* DetailViewController.m */; };
 		ABD1874E1B42D76200912F87 /* DOTableViewCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = ABD1874D1B42D76200912F87 /* DOTableViewCell1.m */; };
 		ABD187511B42D91300912F87 /* DOTableViewCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = ABD187501B42D91300912F87 /* DOTableViewCell2.m */; };
 		ABD187541B42D92300912F87 /* DOTableViewCell3.m in Sources */ = {isa = PBXBuildFile; fileRef = ABD187531B42D92300912F87 /* DOTableViewCell3.m */; };
@@ -148,10 +150,16 @@
 		AB4863B81B411B6200120CE7 /* InviteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InviteViewController.m; sourceTree = "<group>"; };
 		AB4863BA1B411F7500120CE7 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		AB4863BB1B411F7500120CE7 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		AB4BEF461B47F702003ECA98 /* BGTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGTableViewCell.h; sourceTree = "<group>"; };
+		AB4BEF471B47F702003ECA98 /* BGTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGTableViewCell.m; sourceTree = "<group>"; };
+		AB4BEF491B47FBD6003ECA98 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		AB4BEF4A1B47FBD6003ECA98 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		AB4BEF4B1B47FBD6003ECA98 /* EditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditViewController.h; sourceTree = "<group>"; };
+		AB4BEF4C1B47FBD6003ECA98 /* EditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditViewController.m; sourceTree = "<group>"; };
+		AB4BEF4F1B47FC12003ECA98 /* AddBGViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddBGViewController.h; sourceTree = "<group>"; };
+		AB4BEF501B47FC12003ECA98 /* AddBGViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddBGViewController.m; sourceTree = "<group>"; };
 		AB4EF54D1B4230810011D76E /* ResultTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultTableViewCell.h; sourceTree = "<group>"; };
 		AB4EF54E1B4230810011D76E /* ResultTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultTableViewCell.m; sourceTree = "<group>"; };
-		AB602EDE1B439D5E00A71D15 /* EditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditViewController.h; sourceTree = "<group>"; };
-		AB602EDF1B439D5E00A71D15 /* EditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditViewController.m; sourceTree = "<group>"; };
 		AB829B4A1B4041B500594478 /* ResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultViewController.h; sourceTree = "<group>"; };
 		AB829B4B1B4041B500594478 /* ResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultViewController.m; sourceTree = "<group>"; };
 		AB9BF8AA1B3D966200FE7099 /* SlideImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideImageView.h; sourceTree = "<group>"; };
@@ -197,8 +205,6 @@
 		ABCF2A3C1B3B935B00C5CA48 /* JKCountDownButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKCountDownButton.m; sourceTree = "<group>"; };
 		ABCF2A421B3B956D00C5CA48 /* RegisterManage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterManage.h; sourceTree = "<group>"; };
 		ABCF2A431B3B956D00C5CA48 /* RegisterManage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterManage.m; sourceTree = "<group>"; };
-		ABD187481B42D50B00912F87 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
-		ABD187491B42D50B00912F87 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		ABD1874C1B42D76200912F87 /* DOTableViewCell1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOTableViewCell1.h; sourceTree = "<group>"; };
 		ABD1874D1B42D76200912F87 /* DOTableViewCell1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOTableViewCell1.m; sourceTree = "<group>"; };
 		ABD1874F1B42D91300912F87 /* DOTableViewCell2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOTableViewCell2.h; sourceTree = "<group>"; };
@@ -502,6 +508,8 @@
 				ABD187551B42D93700912F87 /* DOTableViewCell4.h */,
 				ABD187561B42D93700912F87 /* DOTableViewCell4.m */,
 				ABD187581B42D9D500912F87 /* DOTableViewCell.h */,
+				AB4BEF461B47F702003ECA98 /* BGTableViewCell.h */,
+				AB4BEF471B47F702003ECA98 /* BGTableViewCell.m */,
 			);
 			path = DetailTVCell;
 			sourceTree = "<group>";
@@ -846,6 +854,12 @@
 				AB4863B81B411B6200120CE7 /* InviteViewController.m */,
 				AB4863BA1B411F7500120CE7 /* SettingsViewController.h */,
 				AB4863BB1B411F7500120CE7 /* SettingsViewController.m */,
+				AB4BEF491B47FBD6003ECA98 /* DetailViewController.h */,
+				AB4BEF4A1B47FBD6003ECA98 /* DetailViewController.m */,
+				AB4BEF4B1B47FBD6003ECA98 /* EditViewController.h */,
+				AB4BEF4C1B47FBD6003ECA98 /* EditViewController.m */,
+				AB4BEF4F1B47FC12003ECA98 /* AddBGViewController.h */,
+				AB4BEF501B47FC12003ECA98 /* AddBGViewController.m */,
 			);
 			path = FourthViewController;
 			sourceTree = "<group>";
@@ -886,10 +900,6 @@
 				ABC48CFF1B3FB6C3004D234A /* MenuViewController.m */,
 				AB829B4A1B4041B500594478 /* ResultViewController.h */,
 				AB829B4B1B4041B500594478 /* ResultViewController.m */,
-				ABD187481B42D50B00912F87 /* DetailViewController.h */,
-				ABD187491B42D50B00912F87 /* DetailViewController.m */,
-				AB602EDE1B439D5E00A71D15 /* EditViewController.h */,
-				AB602EDF1B439D5E00A71D15 /* EditViewController.m */,
 			);
 			path = FirstViewController;
 			sourceTree = "<group>";
@@ -1020,7 +1030,6 @@
 				ABCF2A3D1B3B935B00C5CA48 /* JKCountDownButton.m in Sources */,
 				AB4EF54F1B4230810011D76E /* ResultTableViewCell.m in Sources */,
 				AB829B4C1B4041B500594478 /* ResultViewController.m in Sources */,
-				ABD1874A1B42D50B00912F87 /* DetailViewController.m in Sources */,
 				ABC48CFA1B3FB392004D234A /* REFrostedViewController.m in Sources */,
 				ABC48CFC1B3FB392004D234A /* UIView+REFrostedViewController.m in Sources */,
 				FF2A6BE31A0F3780001607AC /* AppDelegate.m in Sources */,
@@ -1028,13 +1037,13 @@
 				FF2A6C871A0F3B8A001607AC /* DataOC.mm in Sources */,
 				FF2A6C861A0F3B8A001607AC /* DataCenterDeal.mm in Sources */,
 				ABF460FA1B3FEDFB001E781D /* FirstTableViewCell.m in Sources */,
-				AB602EE01B439D5E00A71D15 /* EditViewController.m in Sources */,
 				FF2A6C961A0F3D06001607AC /* SecondViewController.m in Sources */,
 				ABA9F5421B40CD8B0047DD1A /* IndustryModel.m in Sources */,
 				AB45C4A91B3F9710000F48FB /* FirstModel.m in Sources */,
 				ABC48CFB1B3FB392004D234A /* UIImage+REFrostedViewController.m in Sources */,
 				FF3C20041A2EE7480081D3C7 /* FactoryModel.m in Sources */,
 				FF2A6C031A0F398D001607AC /* RootTabBarController.m in Sources */,
+				AB4BEF511B47FC12003ECA98 /* AddBGViewController.m in Sources */,
 				ABD187571B42D93700912F87 /* DOTableViewCell4.m in Sources */,
 				ABCF2A301B3AF6A300C5CA48 /* RLViewController.m in Sources */,
 				FF2A6C741A0F3B7B001607AC /* UIButton+WebCache.m in Sources */,
@@ -1055,6 +1064,7 @@
 				FF2A6C301A0F3B50001607AC /* AFXMLRequestOperation.m in Sources */,
 				AB45C4AD1B3F9710000F48FB /* FirstTUserFeedsVOList.m in Sources */,
 				FF2A6C6C1A0F3B7B001607AC /* NSData+ImageContentType.m in Sources */,
+				AB4BEF4D1B47FBD6003ECA98 /* DetailViewController.m in Sources */,
 				FF2A6C701A0F3B7B001607AC /* SDWebImageDownloader.m in Sources */,
 				ABD187511B42D91300912F87 /* DOTableViewCell2.m in Sources */,
 				FF2A6C481A0F3B72001607AC /* JSONKit.m in Sources */,
@@ -1081,6 +1091,7 @@
 				FF3C20011A2EE6D30081D3C7 /* LSNavigationController.m in Sources */,
 				FF2A6C931A0F3CEB001607AC /* FirstViewController.m in Sources */,
 				FF2A6C441A0F3B6D001607AC /* SVProgressHUD.m in Sources */,
+				AB4BEF4E1B47FBD6003ECA98 /* EditViewController.m in Sources */,
 				FF2A6C731A0F3B7B001607AC /* SDWebImagePrefetcher.m in Sources */,
 				FF2A6C291A0F3B50001607AC /* AFHTTPClient.m in Sources */,
 				ABC48D001B3FB6C3004D234A /* MenuViewController.m in Sources */,
@@ -1096,6 +1107,7 @@
 				AB9D13061B3BE41B00208E3A /* ThrRegisterViewController.m in Sources */,
 				AB4863BC1B411F7500120CE7 /* SettingsViewController.m in Sources */,
 				AB45C4AB1B3F9710000F48FB /* FirstTUser.m in Sources */,
+				AB4BEF481B47F702003ECA98 /* BGTableViewCell.m in Sources */,
 				ABA9F5411B40CD8B0047DD1A /* IndustryIndustries.m in Sources */,
 				ABCF2A391B3B892800C5CA48 /* SecRegisterViewController.m in Sources */,
 				ABF8E42A1B3E941C0097D4FF /* FirstView.m in Sources */,
