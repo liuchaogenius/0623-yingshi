@@ -23,6 +23,12 @@
 		AB4BEF4E1B47FBD6003ECA98 /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4BEF4C1B47FBD6003ECA98 /* EditViewController.m */; };
 		AB4BEF511B47FC12003ECA98 /* AddBGViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4BEF501B47FC12003ECA98 /* AddBGViewController.m */; };
 		AB4EF54F1B4230810011D76E /* ResultTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4EF54E1B4230810011D76E /* ResultTableViewCell.m */; };
+		AB51CAC51B4AA2960003C822 /* ResultData.m in Sources */ = {isa = PBXBuildFile; fileRef = AB51CABB1B4AA2960003C822 /* ResultData.m */; };
+		AB51CAC61B4AA2960003C822 /* ResultListSearchTUserVO.m in Sources */ = {isa = PBXBuildFile; fileRef = AB51CABE1B4AA2960003C822 /* ResultListSearchTUserVO.m */; };
+		AB51CAC71B4AA2960003C822 /* ResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AB51CAC01B4AA2960003C822 /* ResultModel.m */; };
+		AB51CAC81B4AA2960003C822 /* ResultTUser.m in Sources */ = {isa = PBXBuildFile; fileRef = AB51CAC21B4AA2960003C822 /* ResultTUser.m */; };
+		AB51CAC91B4AA2960003C822 /* ResultTUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = AB51CAC41B4AA2960003C822 /* ResultTUserInfo.m */; };
+		AB51CACC1B4AA2AD0003C822 /* ResultManage.m in Sources */ = {isa = PBXBuildFile; fileRef = AB51CACB1B4AA2AD0003C822 /* ResultManage.m */; };
 		AB829B4C1B4041B500594478 /* ResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB829B4B1B4041B500594478 /* ResultViewController.m */; };
 		AB9BF8AC1B3D966200FE7099 /* SlideImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB9BF8AB1B3D966200FE7099 /* SlideImageView.m */; };
 		AB9D13061B3BE41B00208E3A /* ThrRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB9D13051B3BE41B00208E3A /* ThrRegisterViewController.m */; };
@@ -160,6 +166,19 @@
 		AB4BEF501B47FC12003ECA98 /* AddBGViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddBGViewController.m; sourceTree = "<group>"; };
 		AB4EF54D1B4230810011D76E /* ResultTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultTableViewCell.h; sourceTree = "<group>"; };
 		AB4EF54E1B4230810011D76E /* ResultTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultTableViewCell.m; sourceTree = "<group>"; };
+		AB51CABA1B4AA2960003C822 /* ResultData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultData.h; sourceTree = "<group>"; };
+		AB51CABB1B4AA2960003C822 /* ResultData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultData.m; sourceTree = "<group>"; };
+		AB51CABC1B4AA2960003C822 /* ResultDataModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultDataModels.h; sourceTree = "<group>"; };
+		AB51CABD1B4AA2960003C822 /* ResultListSearchTUserVO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultListSearchTUserVO.h; sourceTree = "<group>"; };
+		AB51CABE1B4AA2960003C822 /* ResultListSearchTUserVO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultListSearchTUserVO.m; sourceTree = "<group>"; };
+		AB51CABF1B4AA2960003C822 /* ResultModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultModel.h; sourceTree = "<group>"; };
+		AB51CAC01B4AA2960003C822 /* ResultModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultModel.m; sourceTree = "<group>"; };
+		AB51CAC11B4AA2960003C822 /* ResultTUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultTUser.h; sourceTree = "<group>"; };
+		AB51CAC21B4AA2960003C822 /* ResultTUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultTUser.m; sourceTree = "<group>"; };
+		AB51CAC31B4AA2960003C822 /* ResultTUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultTUserInfo.h; sourceTree = "<group>"; };
+		AB51CAC41B4AA2960003C822 /* ResultTUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultTUserInfo.m; sourceTree = "<group>"; };
+		AB51CACA1B4AA2AD0003C822 /* ResultManage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultManage.h; sourceTree = "<group>"; };
+		AB51CACB1B4AA2AD0003C822 /* ResultManage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultManage.m; sourceTree = "<group>"; };
 		AB829B4A1B4041B500594478 /* ResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultViewController.h; sourceTree = "<group>"; };
 		AB829B4B1B4041B500594478 /* ResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultViewController.m; sourceTree = "<group>"; };
 		AB9BF8AA1B3D966200FE7099 /* SlideImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideImageView.h; sourceTree = "<group>"; };
@@ -377,6 +396,8 @@
 				AB45C4961B3F9645000F48FB /* FirstManage.m */,
 				ABA9F5431B40D9AD0047DD1A /* IndustryManage.h */,
 				ABA9F5441B40D9AD0047DD1A /* IndustryManage.m */,
+				AB51CACA1B4AA2AD0003C822 /* ResultManage.h */,
+				AB51CACB1B4AA2AD0003C822 /* ResultManage.m */,
 			);
 			path = Netmanage;
 			sourceTree = "<group>";
@@ -410,6 +431,24 @@
 				AB4EF54E1B4230810011D76E /* ResultTableViewCell.m */,
 			);
 			path = ResultTVCell;
+			sourceTree = "<group>";
+		};
+		AB51CAB91B4AA2960003C822 /* ResultModel */ = {
+			isa = PBXGroup;
+			children = (
+				AB51CABA1B4AA2960003C822 /* ResultData.h */,
+				AB51CABB1B4AA2960003C822 /* ResultData.m */,
+				AB51CABC1B4AA2960003C822 /* ResultDataModels.h */,
+				AB51CABD1B4AA2960003C822 /* ResultListSearchTUserVO.h */,
+				AB51CABE1B4AA2960003C822 /* ResultListSearchTUserVO.m */,
+				AB51CABF1B4AA2960003C822 /* ResultModel.h */,
+				AB51CAC01B4AA2960003C822 /* ResultModel.m */,
+				AB51CAC11B4AA2960003C822 /* ResultTUser.h */,
+				AB51CAC21B4AA2960003C822 /* ResultTUser.m */,
+				AB51CAC31B4AA2960003C822 /* ResultTUserInfo.h */,
+				AB51CAC41B4AA2960003C822 /* ResultTUserInfo.m */,
+			);
+			path = ResultModel;
 			sourceTree = "<group>";
 		};
 		AB9BF8A91B3D966200FE7099 /* SlideImageView */ = {
@@ -888,6 +927,7 @@
 		FF2A6C901A0F3CC9001607AC /* FirstViewController */ = {
 			isa = PBXGroup;
 			children = (
+				AB51CAB91B4AA2960003C822 /* ResultModel */,
 				ABD1874B1B42D71F00912F87 /* DetailTVCell */,
 				AB4EF54C1B42306A0011D76E /* ResultTVCell */,
 				ABA9F5351B40CD7D0047DD1A /* IndustryModel */,
@@ -1039,6 +1079,7 @@
 				ABF460FA1B3FEDFB001E781D /* FirstTableViewCell.m in Sources */,
 				FF2A6C961A0F3D06001607AC /* SecondViewController.m in Sources */,
 				ABA9F5421B40CD8B0047DD1A /* IndustryModel.m in Sources */,
+				AB51CAC61B4AA2960003C822 /* ResultListSearchTUserVO.m in Sources */,
 				AB45C4A91B3F9710000F48FB /* FirstModel.m in Sources */,
 				ABC48CFB1B3FB392004D234A /* UIImage+REFrostedViewController.m in Sources */,
 				FF3C20041A2EE7480081D3C7 /* FactoryModel.m in Sources */,
@@ -1063,6 +1104,7 @@
 				AB45C4A81B3F9710000F48FB /* FirstData.m in Sources */,
 				FF2A6C301A0F3B50001607AC /* AFXMLRequestOperation.m in Sources */,
 				AB45C4AD1B3F9710000F48FB /* FirstTUserFeedsVOList.m in Sources */,
+				AB51CAC81B4AA2960003C822 /* ResultTUser.m in Sources */,
 				FF2A6C6C1A0F3B7B001607AC /* NSData+ImageContentType.m in Sources */,
 				AB4BEF4D1B47FBD6003ECA98 /* DetailViewController.m in Sources */,
 				FF2A6C701A0F3B7B001607AC /* SDWebImageDownloader.m in Sources */,
@@ -1071,11 +1113,13 @@
 				AB45C4AE1B3F9710000F48FB /* FirstTUserInfo.m in Sources */,
 				FF2A6C2D1A0F3B50001607AC /* AFNetworkActivityIndicatorManager.m in Sources */,
 				FF2A6C781A0F3B7B001607AC /* UIImageView+HighlightedWebCache.m in Sources */,
+				AB51CAC51B4AA2960003C822 /* ResultData.m in Sources */,
 				AB9D130C1B3BEBC100208E3A /* LoginManage.m in Sources */,
 				FF2A6C2A1A0F3B50001607AC /* AFHTTPRequestOperation.m in Sources */,
 				ABCF2A361B3B83F900C5CA48 /* LoginViewController.m in Sources */,
 				FF2A6C321A0F3B50001607AC /* NetManager.m in Sources */,
 				FF3C20081A2F2A440081D3C7 /* GlobObserverObject.m in Sources */,
+				AB51CAC91B4AA2960003C822 /* ResultTUserInfo.m in Sources */,
 				FF2A6BE01A0F3780001607AC /* main.m in Sources */,
 				ABC48CFD1B3FB392004D234A /* UIViewController+REFrostedViewController.m in Sources */,
 				FF2A6C311A0F3B50001607AC /* MyHttpClient.m in Sources */,
@@ -1085,6 +1129,7 @@
 				FF2A6C6E1A0F3B7B001607AC /* SDWebImageCompat.m in Sources */,
 				FF2A6C2B1A0F3B50001607AC /* AFImageRequestOperation.m in Sources */,
 				AB45C4B11B3F9B95000F48FB /* ReleaseViewController.m in Sources */,
+				AB51CACC1B4AA2AD0003C822 /* ResultManage.m in Sources */,
 				FF2A6C6B1A0F3B7B001607AC /* MKAnnotationView+WebCache.m in Sources */,
 				ABA9F53F1B40CD8B0047DD1A /* IndustryCategory.m in Sources */,
 				FF2A6C3E1A0F3B66001607AC /* UIViewAdditions.m in Sources */,
@@ -1092,6 +1137,7 @@
 				FF2A6C931A0F3CEB001607AC /* FirstViewController.m in Sources */,
 				FF2A6C441A0F3B6D001607AC /* SVProgressHUD.m in Sources */,
 				AB4BEF4E1B47FBD6003ECA98 /* EditViewController.m in Sources */,
+				AB51CAC71B4AA2960003C822 /* ResultModel.m in Sources */,
 				FF2A6C731A0F3B7B001607AC /* SDWebImagePrefetcher.m in Sources */,
 				FF2A6C291A0F3B50001607AC /* AFHTTPClient.m in Sources */,
 				ABC48D001B3FB6C3004D234A /* MenuViewController.m in Sources */,

@@ -10,4 +10,6 @@
 
 @interface ResultViewController : BaseViewController
 
+- (instancetype)initWithDict:(NSDictionary *)aDict;
+
 @end

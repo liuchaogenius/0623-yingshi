@@ -9,8 +9,13 @@
 #import "ResultViewController.h"
 #import "ResultTableViewCell.h"
 #import "SVPullToRefresh.h"
+#import "ResultManage.h"
 
 @interface ResultViewController ()<UITableViewDataSource, UITableViewDelegate>
+{
+    NSDictionary *myDict;
+    ResultManage *manage;
+}
 @property (nonatomic, strong) UITableView *myTableView;
 @end
 
@@ -21,9 +26,20 @@
     self.navigationController.navigationBarHidden = NO;
 }
 
+- (instancetype)initWithDict:(NSDictionary *)aDict
+{
+    if (self = [super init])
+    {
+        myDict = aDict;
+    }
+    
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 //    self.view.backgroundColor = [UIColor blackColor];
+    manage = [[ResultManage alloc] init];
     
     UIImageView *bgImgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, -64, kMainScreenWidth, kMainScreenHeight)];
     bgImgView.image = IMAGE(@"bg");
@@ -37,6 +53,12 @@
     [self.view addSubview:self.myTableView];
     
     [self addTableViewTrag];
+    
+    [manage getResultArrayWithDict:myDict success:^(NSMutableArray *aArray) {
+        
+    } andFail:^(NSString *aStr) {
+        
+    }];
 }
 
 #pragma mark 增加上拉下拉
