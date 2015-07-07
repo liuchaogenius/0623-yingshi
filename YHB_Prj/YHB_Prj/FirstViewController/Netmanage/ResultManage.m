@@ -8,6 +8,7 @@
 
 #import "ResultManage.h"
 #import "NetManager.h"
+#import "ResultDataModels.h"
 
 @interface ResultManage()
 {
@@ -20,7 +21,7 @@
 @end
 @implementation ResultManage
 
-- (void)getResultArrayWithDict:(NSDictionary *)aDict success:(void(^)(NSMutableArray *aArray))aSuccBlock andFail:(void(^)(NSString *aStr))aFailBlock
+- (void)getResultArrayWithDict:(NSDictionary *)aDict success:(void(^)(NSArray *aArray))aSuccBlock andFail:(void(^)(NSString *aStr))aFailBlock
 {
     pagesize = 20;
     pageid = 1;
@@ -30,29 +31,12 @@
     muDict = [aDict mutableCopy];
     [muDict setObject:@"1" forKey:@"pageNo"];
     [muDict setObject:@"20" forKey:@"pageSize"];
-    kHubRequestUrl(@"searchUserList.htm", supplyUrl);
+    kHubRequestUrl(@"user/searchUserList.htm", supplyUrl);
     [NetManager requestWith:muDict url:supplyUrl method:@"POST" operationKey:nil parameEncoding:AFJSONParameterEncoding succ:^(NSDictionary *successDict) {
-        MLOG(@"%@", successDict);
-//        NSString *result = [successDict objectForKey:@"result"];
-//        if ([result intValue] != 1)
-//        {
-//            aFailBlock([successDict objectForKey:@"error"]);
-//        }
-//        else
-//        {
-//            NSDictionary *dataDict = [successDict objectForKey:@"data"];
-//            NSDictionary *pageDict = [dataDict objectForKey:@"page"];
-//            pagetotal = [[pageDict objectForKey:@"pagetotal"] intValue];
-//            NSArray *rslistArray = [dataDict objectForKey:@"rslist"];
-//            NSMutableArray *resultArray = [NSMutableArray new];
-//            for (int i=0; i<rslistArray.count; i++)
-//            {
-//                NSDictionary *dict = [rslistArray objectAtIndex:i];
-//                YHBSupplyModel *model = [YHBSupplyModel modelObjectWithDictionary:dict];
-//                [resultArray addObject:model];
-//            }
-//            aSuccBlock(resultArray);
-//        }
+//        MLOG(@"%@", successDict);
+        ResultModel *model = [ResultModel modelObjectWithDictionary:successDict];
+        NSArray *array = model.data.listSearchTUserVO;
+        aSuccBlock(array);
     } failure:^(NSDictionary *failDict, NSError *error) {
         aFailBlock([failDict objectForKey:@"error"]);
     }];

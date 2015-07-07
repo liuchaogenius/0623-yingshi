@@ -73,9 +73,48 @@
     headBtn.clipsToBounds = YES;
     [bgView addSubview:headBtn];
     
-    kCreateButton(nameBtn, CGRectMake(headBtn.right+5, topImgView.bottom+16, 40, 18), @"王慧儿", nil, nil, 12, [UIColor whiteColor]);
-    CGSize singleLineStringSize = [@"213" sizeWithFont:kFont12];
+    kCreateButton(nameBtn, CGRectMake(headBtn.right+5, topImgView.bottom, 40, 40), @"王慧儿", nil, nil, 12, [UIColor whiteColor]);
+//    CGSize singleLineStringSize = [@"999" sizeWithFont:kFont12];
     [bgView addSubview:nameBtn];
+    
+    kCreateLabel(detailLabel, CGRectMake(nameBtn.right+5, topImgView.bottom, 70, 40), 10, [UIColor lightGrayColor], @"浙江音乐学院");
+    [bgView addSubview:detailLabel];
+    
+    kCreateLabel(likeLabel, CGRectMake(bgView.width-25, topImgView.bottom+12, 25, 16), 12, [UIColor lightGrayColor], @"999");
+    likeLabel.textAlignment = NSTextAlignmentCenter;
+    [bgView addSubview:likeLabel];
+    
+    kCreateButton(likeBtn, CGRectMake(likeLabel.left-18, likeLabel.top, 16, 16), nil, IMAGE(@"likeN"), nil, 0, nil);
+    [bgView addSubview:likeBtn];
+    
+    kCreateLabel(commentLabel, CGRectMake(likeBtn.left-25, likeBtn.top, 25, 16), 12, [UIColor lightGrayColor], @"999");
+    commentLabel.textAlignment = NSTextAlignmentCenter;
+    [bgView addSubview:commentLabel];
+    
+    kCreateButton(commentBtn, CGRectMake(commentLabel.left-18, commentLabel.top, 16, 16), nil, IMAGE(@"commentN"), nil, 0, nil);
+    [bgView addSubview:commentBtn];
+}
+
+- (void)setCellWithData:(ResultTUserInfo *)aUserInfo
+{
+    topImgView.image = [UIImage imageNamed:@""];
+    [headBtn setImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+    [nameBtn setTitle:@"" forState:UIControlStateNormal];
+    detailLabel.text = @"";
+    likeLabel.text = @"";
+    commentLabel.text = @"";
+    
+    CGSize singleLineStringSize = [aUserInfo.nickName sizeWithFont:kFont12];
+    nameBtn.width = singleLineStringSize.width;
+    [nameBtn setTitle:aUserInfo.nickName forState:UIControlStateNormal];
+    detailLabel.left = nameBtn.width+nameBtn.left+5;
+    
+    NSString *industryStr = [NSString stringWithFormat:@"%d", (int)aUserInfo.industry];
+    CGSize singleLineStringSize2 = [industryStr sizeWithFont:kFont12];
+    detailLabel.width = singleLineStringSize2.width;
+    detailLabel.text = industryStr;
+    
+    likeLabel.text = [NSString stringWithFormat:@"%d", (int)aUserInfo.praise];
 }
 
 - (void)awakeFromNib {

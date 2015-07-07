@@ -10,11 +10,14 @@
 #import "ResultTableViewCell.h"
 #import "SVPullToRefresh.h"
 #import "ResultManage.h"
+#import "SingleUserFeedsViewController.h"
+#import "ResultDataModels.h"
 
 @interface ResultViewController ()<UITableViewDataSource, UITableViewDelegate>
 {
     NSDictionary *myDict;
     ResultManage *manage;
+    NSMutableArray *dataArray;
 }
 @property (nonatomic, strong) UITableView *myTableView;
 @end
@@ -54,8 +57,9 @@
     
     [self addTableViewTrag];
     
-    [manage getResultArrayWithDict:myDict success:^(NSMutableArray *aArray) {
-        
+    [manage getResultArrayWithDict:myDict success:^(NSArray *aArray) {
+        dataArray = [aArray mutableCopy];
+        [self.myTableView reloadData];
     } andFail:^(NSString *aStr) {
         
     }];
@@ -83,7 +87,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 20;
+    return dataArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -93,10 +97,20 @@
     if (!cell)
     {
         cell = [[ResultTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
-    
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    ResultListSearchTUserVO *vo = [dataArray objectAtIndex:indexPath.row];
+    ResultTUserInfo *userInfo = vo.tUserInfo;
+    [cell setCellWithData:userInfo];
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+//    ResultListSearchTUserVO *vo = [dataArray objectAtIndex:indexPath.row];
+//
+//    SingleUserFeedsViewController *vc = [SingleUserFeedsViewController alloc] initWithId:
+//    [self.navigationController pushViewController:[SingleUserFeedsViewController new] animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

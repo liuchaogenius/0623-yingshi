@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ResultDataModels.h"
 
 @interface ResultTableViewCell : UITableViewCell
 
+- (void)setCellWithData:(ResultTUserInfo *)aUserInfo;
 @end

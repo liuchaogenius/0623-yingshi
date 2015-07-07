@@ -61,7 +61,7 @@
     kCreateTextField(phoneTF, CGRectMake(jobTF.left, jobTF.bottom, jobTF.width, jobTF.height), nil, 16);
     [bgView addSubview:phoneTF];
     
-    UIView *lineView3 = [self createLineView:CGRectMake(12, textLabel1.bottom, kMainScreenWidth-12, 0.25) lineColor:[UIColor lightGrayColor]];
+    UIView *lineView3 = [self createLineView:CGRectMake(12, textLabel1.bottom, kMainScreenWidth-12, 0.5) lineColor:[UIColor lightGrayColor]];
     [bgView addSubview:lineView3];
     
     kCreateLabel(textLabel2, CGRectMake(textLabel1.left, textLabel1.bottom, textLabel1.width, textLabel1.height), 16, RGBCOLOR(102, 102, 102), @"邮箱");
@@ -70,14 +70,20 @@
     kCreateTextField(mailTF, CGRectMake(phoneTF.left, phoneTF.bottom, jobTF.width, jobTF.height), nil, 16);
     [bgView addSubview:mailTF];
     
-    UIView *lineView4 = [self createLineView:CGRectMake(0, mailTF.bottom, kMainScreenWidth, 0.25) lineColor:[UIColor lightGrayColor]];
+    UIView *lineView4 = [self createLineView:CGRectMake(0, mailTF.bottom, kMainScreenWidth, 0.5) lineColor:[UIColor lightGrayColor]];
     [bgView addSubview:lineView4];
     
-    kCreateButton(sureBtn, CGRectMake(12, bgView.bottom+25, kMainScreenWidth-24, 40), @"确定", nil, nil, 14, [UIColor whiteColor]);
+    kCreateButton(sureBtn, CGRectMake(12, bgView.bottom+25, kMainScreenWidth-24, 40), @"确定", nil, nil, 16, [UIColor whiteColor]);
     sureBtn.backgroundColor = kBlueColor;
     sureBtn.layer.cornerRadius = 2.5;
+    [sureBtn addTarget:self action:@selector(touchSureBtn) forControlEvents:UIControlEventTouchDown];
     [self.view addSubview:sureBtn];
 
+}
+
+- (void)touchSureBtn
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (UIView *)createLineView:(CGRect)aFrame lineColor:(UIColor *)aColor

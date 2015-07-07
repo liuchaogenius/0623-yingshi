@@ -47,7 +47,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 4;
+    return 3;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -75,14 +75,14 @@
     {
         UITableViewCell *cell = [[UITableViewCell alloc] init];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        if (indexPath.section==2)
-        {
-            cell.textLabel.text = @"我的邀请卡";
-        }
-        else
-        {
+//        if (indexPath.section==2)
+//        {
+//            cell.textLabel.text = @"我的邀请卡";
+//        }
+//        else
+//        {
             cell.textLabel.text = @"设置";
-        }
+//        }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
@@ -98,16 +98,19 @@
     }
     if (indexPath.section==2)
     {
-        InviteViewController *vc = [[InviteViewController alloc] init];
-        vc.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:vc animated:YES];
-    }
-    if (indexPath.section==3)
-    {
+//        InviteViewController *vc = [[InviteViewController alloc] init];
+//        vc.hidesBottomBarWhenPushed = YES;
+//        [self.navigationController pushViewController:vc animated:YES];
         SettingsViewController *vc = [[SettingsViewController alloc] init];
         vc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:vc animated:YES];
     }
+//    if (indexPath.section==3)
+//    {
+//        SettingsViewController *vc = [[SettingsViewController alloc] init];
+//        vc.hidesBottomBarWhenPushed = YES;
+//        [self.navigationController pushViewController:vc animated:YES];
+//    }
 }
 
 - (void)didReceiveMemoryWarning {

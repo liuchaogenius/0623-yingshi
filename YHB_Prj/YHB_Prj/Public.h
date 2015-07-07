@@ -15,6 +15,12 @@
 #define kHubRequestUrl(path,outUrl) do{\
   outUrl = [NSString stringWithFormat:@"%@%@",kHubBaseUrl,path];\
 }while(0)
+
+#define kYyBaseUrl @"http://www.aclili.com:3050/"
+#define kYyImgUrl(path,outUrl) do{\
+outUrl = [NSString stringWithFormat:@"%@%@",kYyBaseUrl,path];\
+}while(0)
+
 #define isNull(a) [a isKindOfClass:[NSNull class]]
 
 #define RGBCOLOR(r,g,b) [UIColor colorWithRed:r/256.0 green:g/256.0 blue:b/256.0 alpha:1]

@@ -108,7 +108,7 @@
     locaView = [[UIView alloc] initWithFrame:CGRectMake(0, segmentedControl.bottom, kViewWidthThis-12, kMainScreenHeight-segmentedControl.bottom)];
     locaView.backgroundColor = [UIColor blackColor];
     
-    UIView *view2 = [[UIView alloc] initWithFrame:CGRectMake(locaView.width/2.0+14, 0, 1, locaView.height)];
+    UIView *view2 = [[UIView alloc] initWithFrame:CGRectMake(locaView.width/2.0+14.5, 0, 0.5, locaView.height)];
     view2.backgroundColor = [UIColor whiteColor];
     
     locaTableView1 = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, locaView.width, locaView.height)];
@@ -131,7 +131,7 @@
     jobView = [[UIView alloc] initWithFrame:CGRectMake(0, segmentedControl.bottom, kViewWidthThis-12, kMainScreenHeight-segmentedControl.bottom)];
     jobView.backgroundColor = [UIColor blackColor];
     
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(jobView.width/2.0+14, 0, 1, jobView.height)];
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(jobView.width/2.0+14.5, 0.5, 1, jobView.height)];
     view.backgroundColor = [UIColor whiteColor];
     
     jobTableView1 = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, jobView.width, jobView.height)];

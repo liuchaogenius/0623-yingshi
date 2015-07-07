@@ -87,10 +87,16 @@
     self.datePicker.backgroundColor = [UIColor whiteColor];
     [self.datePicker addTarget:self action:@selector(chooseDate:) forControlEvents:UIControlEventValueChanged];
     
-    kCreateButton(sureBtn, CGRectMake(12, bgView.bottom+25, kMainScreenWidth-24, 40), @"确定", nil, nil, 14, [UIColor whiteColor]);
+    kCreateButton(sureBtn, CGRectMake(12, bgView.bottom+25, kMainScreenWidth-24, 40), @"确定", nil, nil, 16, [UIColor whiteColor]);
     sureBtn.backgroundColor = kBlueColor;
     sureBtn.layer.cornerRadius = 2.5;
+    [sureBtn addTarget:self action:@selector(touchSureBtn) forControlEvents:UIControlEventTouchDown];
     [self.view addSubview:sureBtn];
+}
+
+- (void)touchSureBtn
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)chooseDate:(UIDatePicker *)sender {

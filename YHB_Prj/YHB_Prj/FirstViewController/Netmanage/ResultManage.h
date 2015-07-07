@@ -10,6 +10,5 @@
 
 @interface ResultManage : NSObject
 
-- (void)getResultArrayWithDict:(NSDictionary *)aDict success:(void(^)(NSMutableArray *aArray))aSuccBlock andFail:(void(^)(NSString *aStr))aFailBlock;
-
+- (void)getResultArrayWithDict:(NSDictionary *)aDict success:(void(^)(NSArray *aArray))aSuccBlock andFail:(void(^)(NSString *aStr))aFailBlock;
 @end

@@ -10,6 +10,7 @@
 #import "SlideImageView.h"
 #import "FirstManage.h"
 #import "AppDelegate.h"
+#import "SingleUserFeedsViewController.h"
 
 @interface FirstViewController ()<SlideImageViewDelegate>
 @property(nonatomic, strong) SlideImageView *slideImageView;
@@ -70,8 +71,11 @@
 
 - (void)SlideImageViewDidClickWithIndex:(int)index
 {
-    NSString* indexStr = [[NSString alloc]initWithFormat:@"点击了第%d张",index];
-    MLOG(@"%@", indexStr);
+//    NSString* indexStr = [[NSString alloc]initWithFormat:@"点击了第%d张",index];
+//    MLOG(@"%@", indexStr);
+    SingleUserFeedsViewController *vc = [[SingleUserFeedsViewController alloc] initWithId:@"4"];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)SlideImageViewDidEndScorllWithIndex:(int)index

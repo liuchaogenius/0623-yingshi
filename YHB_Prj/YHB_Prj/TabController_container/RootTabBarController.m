@@ -160,19 +160,19 @@
 
 - (UIViewController *)getCurrentSelectVC
 {
-    if(oldSelectIndex == 0)
+    if(newSelectIndex == 0)
     {
         return [[FactoryModel shareFactoryModel] getFirstViewController];
     }
-    if(oldSelectIndex == 1)
+    if(newSelectIndex == 1)
     {
         return [[FactoryModel shareFactoryModel] getSecondViewController];
     }
-    if(oldSelectIndex == 3)
+    if(newSelectIndex == 3)
     {
         return [[FactoryModel shareFactoryModel] getThirdViewController];
     }
-    if(oldSelectIndex == 4)
+    if(newSelectIndex == 4)
     {
         return [[FactoryModel shareFactoryModel] getFourthViewController];
     }
