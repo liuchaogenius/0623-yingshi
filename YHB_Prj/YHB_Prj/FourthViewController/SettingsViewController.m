@@ -7,6 +7,9 @@
 //
 
 #import "SettingsViewController.h"
+#import "AppDelegate.h"
+#import "RootTabBarController.h"
+#import "SVProgressHUD.h"
 
 @interface SettingsViewController ()<UITableViewDataSource, UITableViewDelegate>
 {
@@ -27,11 +30,26 @@
     [self.view addSubview:self.myTableView];
     
     kCreateButton(outBtn, CGRectMake(20, kMainScreenHeight-60-64, kMainScreenWidth-40, 40), @"登出", nil, nil, 15, [UIColor blackColor]);
+    [outBtn addTarget:self action:@selector(touchOutBtn) forControlEvents:UIControlEventTouchDown];
     outBtn.backgroundColor = [UIColor whiteColor];
     outBtn.layer.borderWidth = 1;
     outBtn.layer.borderColor = [[UIColor blackColor] CGColor];
     outBtn.layer.cornerRadius = 2.5;
     [self.myTableView addSubview:outBtn];
+}
+
+- (void)touchOutBtn
+{
+    [self.navigationController popViewControllerAnimated:YES];
+    [SVProgressHUD showSuccessWithStatus:@"退出成功" cover:YES offsetY:kMainScreenHeight/2.0];
+    [self performSelector:@selector(selectMain) withObject:nil afterDelay:0.05];
+}
+
+- (void)selectMain
+{
+    AppDelegate *de = [UIApplication sharedApplication].delegate;
+    RootTabBarController *vc = de.rootvc;
+    vc.selectedIndex = 0;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

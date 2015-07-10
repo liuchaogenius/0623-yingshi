@@ -29,7 +29,7 @@
     if (self = [super init])
     {
         myid = aId;
-        NSString *textStr = @"发球方嘎达路附近嘎达非公开的韩国发快递就回复该骄傲的回复刚卡机发球方嘎达路附近嘎达非公开的韩国发快递就回复该骄傲的回复刚卡机发健康法哈德尽快发哈";
+        NSString *textStr = @"发球方嘎达";
         CGRect textFrame = [textStr boundingRectWithSize:CGSizeMake(kMainScreenWidth-24,1000) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:kFont14}context:nil];
         secondCellHeight = textFrame.size.height+24.0;
     }
@@ -118,7 +118,7 @@
     {
         UITableViewCell *cell = [[UITableViewCell alloc] init];
         UILabel *myTextLabel;
-        NSString *textStr = @"发球方嘎达路附近嘎达非公开的韩国发快递就回复该骄傲的回复刚卡机发球方嘎达路附近嘎达非公开的韩国发快递就回复该骄傲的回复刚卡机发健康法哈德尽快发哈";
+        NSString *textStr = @"发球方嘎达";
         kCreateLabel(myTextLabel, CGRectMake(12, 12, kMainScreenWidth-24, secondCellHeight-24), 14, [UIColor blackColor], textStr);
         myTextLabel.numberOfLines = 0;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -147,6 +147,7 @@
         UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0, 49.5, kMainScreenWidth, 0.5)];
         lineView.backgroundColor = [UIColor lightGrayColor];
         [cell addSubview:lineView];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     SingleUserFeedsTCommentAndUserVOList *list = [commentArray objectAtIndex:indexPath.row-3];
     [cell setCellWithData:list];

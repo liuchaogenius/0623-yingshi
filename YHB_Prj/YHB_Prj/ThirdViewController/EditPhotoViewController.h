@@ -10,5 +10,5 @@
 
 @interface EditPhotoViewController : BaseViewController
 
-- (instancetype)initWithPhotoArray:(NSArray *)aPhotoArray;
+- (instancetype)initWithBgImg:(UIImage *)aBgImg;
 @end

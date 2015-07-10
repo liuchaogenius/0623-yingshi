@@ -12,8 +12,11 @@
 #import "FactoryModel.h"
 #import "LSNavigationController.h"
 #import "YHBAlbumViewController.h"
+#import "EditPhotoViewController.h"
+#import "YHBUser.h"
+#import "RLViewController.h"
 
-@interface RootTabBarController ()<UITabBarControllerDelegate>
+@interface RootTabBarController ()<UITabBarControllerDelegate, UIActionSheetDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 {
     
     NSInteger newSelectIndex;
@@ -26,6 +29,8 @@
     UINavigationController *testnav;
     BOOL isGoBack;
 }
+@property(nonatomic, strong) RLViewController *loginVC;
+@property(nonatomic, strong) LSNavigationController *loginNav;
 @end
 
 @implementation RootTabBarController
@@ -81,19 +86,122 @@
 //发布按钮事件
 - (void)releaseRuttonItem:(UIButton*)aBut
 {
-    if(!testvc)
+//    if(!testvc)
+//    {
+//        testvc = nil;
+//    }
+//    if(!testnav)
+//    {
+//        testnav = nil;
+//    }
+//    testvc = [[YHBAlbumViewController alloc] initWithBlock:nil andPhotoCount:1 isFirst:YES];
+//    testnav = [[LSNavigationController alloc] initWithRootViewController:testvc];
+//    [self presentViewController:testnav animated:YES completion:^{
+//        
+//    }];
+    [self plusImageClicked];
+}
+
+- (void)plusImageClicked
+{
+    UIActionSheet *sheet;
+    
+    // 判断是否支持相机
+    if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
     {
-        testvc = nil;
+        sheet  = [[UIActionSheet alloc] initWithTitle:@"选择图像" delegate:self cancelButtonTitle:nil destructiveButtonTitle:@"取消" otherButtonTitles:@"拍照", @"从相册选择", nil];
     }
-    if(!testnav)
-    {
-        testnav = nil;
+    else {
+        sheet = [[UIActionSheet alloc] initWithTitle:@"选择图像" delegate:self cancelButtonTitle:nil destructiveButtonTitle:@"取消" otherButtonTitles:@"从相册选择", nil];
     }
-    testvc = [[YHBAlbumViewController alloc] initWithBlock:nil andPhotoCount:1 isFirst:YES];
-    testnav = [[LSNavigationController alloc] initWithRootViewController:testvc];
-    [self presentViewController:testnav animated:YES completion:^{
-        
-    }];
+    
+    sheet.tag = 255;
+    
+    [sheet showInView:self.view];
+}
+
+#pragma mark - action sheet delegte
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (actionSheet.tag == 255) {
+        NSUInteger sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        // 判断是否支持相机
+        if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+            switch (buttonIndex) {
+                case 0:
+                    return;
+                case 1: //相机
+                    sourceType = UIImagePickerControllerSourceTypeCamera;
+                    break;
+                case 2: //相册
+                    sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+                    break;
+            }
+        }
+        else {
+            if (buttonIndex == 0) {
+                return;
+            } else {
+                sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+            }
+        }
+        if (sourceType==UIImagePickerControllerSourceTypeCamera) {
+            // 跳转到相机或相册页面
+            UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+//            __weak RootTabBarController *barVC = self;
+            imagePickerController.delegate = self;
+            imagePickerController.sourceType = sourceType;
+            imagePickerController.mediaTypes =[UIImagePickerController availableMediaTypesForSourceType:imagePickerController.sourceType];
+            if (sourceType == UIImagePickerControllerSourceTypeCamera)
+            {
+                imagePickerController.allowsEditing = YES;
+            }
+            
+            [self presentViewController:imagePickerController animated:YES completion:^{}];
+        }
+        else
+        {
+            UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+           if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
+                imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+                //pickerImage.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+                imagePickerController.mediaTypes = [UIImagePickerController availableMediaTypesForSourceType:imagePickerController.sourceType];
+                
+            }
+            imagePickerController.delegate = self;
+            imagePickerController.allowsEditing = YES;
+            [self presentViewController:imagePickerController animated:YES completion:^{}];
+        }
+    }
+}
+
+#pragma mark - image picker delegte
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    [picker dismissViewControllerAnimated:YES completion:^{}];
+    
+    UIImage *image = [info objectForKey:@"UIImagePickerControllerEditedImage"];
+    
+    if (picker.sourceType == UIImagePickerControllerSourceTypeCamera) {
+        UIImage * oriImage = [info objectForKey:UIImagePickerControllerOriginalImage];
+        // 保存图片到相册中
+        SEL selectorToCall = @selector(imageWasSavedSuccessfully:didFinishSavingWithError:contextInfo:);
+        UIImageWriteToSavedPhotosAlbum(oriImage, self,selectorToCall, NULL);
+    }
+    
+    EditPhotoViewController *vc = [[EditPhotoViewController alloc] initWithBgImg:image];
+    vc.hidesBottomBarWhenPushed = YES;
+    [[self getCurrentSelectVC].navigationController pushViewController:vc animated:YES];
+}
+
+- (void) imageWasSavedSuccessfully:(UIImage *)paramImage didFinishSavingWithError:(NSError *)paramError contextInfo:(void *)paramContextInfo{
+    if (paramError == nil){
+        NSLog(@"Image was saved successfully.");
+        paramImage = nil;
+    } else {
+        NSLog(@"An error happened while saving the image.");
+        NSLog(@"Error = %@", paramError);
+    }
 }
 
 - (void)initTabBarItem
@@ -183,49 +291,49 @@
 - (void)showLoginViewController:(NSNotification *)aNotification
 {
     
-//    if(aNotification.object)
-//    {
-//        isGoBack = [[aNotification object] boolValue]; ///yes为goback  其他的不处理
-//    }
-//    __weak RootTabBarController *weakself = self;
-//    if (![HbhUser sharedHbhUser].isLogin)
-//    {
-//        if(!self.loginVC)
-//        {
-//            self.loginVC = [[HbhLoginViewController alloc] init];
-//        }
-//        if(!self.loginNav)
-//        {
-//            self.loginNav = [[UINavigationController alloc] initWithRootViewController:self.loginVC];
-//            
-//        }
-//
-//        [self presentViewController:self.loginNav animated:YES completion:^{
-//            
-//        }];
-//        if(!loginObserver)
-//        {
-//            loginObserver = [[FBKVOController alloc] initWithObserver:self];
-//        }
-//        [loginObserver observe:self.loginVC keyPath:@"type" options:NSKeyValueObservingOptionNew block:^(id observer, id object, NSDictionary *change) {
-//            int type = [[change objectForKey:@"new"] intValue];
-//            if(type == eLoginSucc)
-//            {
-//
-//            }
-//            else if(type == eLoginBack)
-//            {
-//                if(isGoBack)
-//                {
-//                    weakself.selectedIndex = oldSelectIndex;
-//                    isGoBack = NO;
-//                }
-//            }
-//            [weakself.loginNav dismissViewControllerAnimated:YES completion:^{
-//                
-//            }];
-//        }];
-//    }
+    if(aNotification.object)
+    {
+        isGoBack = [[aNotification object] boolValue]; ///yes为goback  其他的不处理
+    }
+    __weak RootTabBarController *weakself = self;
+    if (![YHBUser sharedYHBUser].isLogin)
+    {
+        if(!self.loginVC)
+        {
+            self.loginVC = [[RLViewController alloc] init];
+        }
+        if(!self.loginNav)
+        {
+            self.loginNav = [[LSNavigationController alloc] initWithRootViewController:self.loginVC];
+            
+        }
+
+        [self presentViewController:self.loginNav animated:YES completion:^{
+            
+        }];
+        if(!loginObserver)
+        {
+            loginObserver = [[FBKVOController alloc] initWithObserver:self];
+        }
+        [loginObserver observe:self.loginVC keyPath:@"type" options:NSKeyValueObservingOptionNew block:^(id observer, id object, NSDictionary *change) {
+            int type = [[change objectForKey:@"new"] intValue];
+            if(type == eLoginSucc)
+            {
+
+            }
+            else if(type == eLoginBack)
+            {
+                if(isGoBack)
+                {
+                    weakself.selectedIndex = oldSelectIndex;
+                    isGoBack = NO;
+                }
+            }
+            [weakself.loginNav dismissViewControllerAnimated:YES completion:^{
+                
+            }];
+        }];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

@@ -12,11 +12,13 @@
 {
     UIButton *topImgBtn;
     UITextField *nameTF;
-    UITextField *jobTF;
+    UITextField *detailTF;
     UITextField *phoneTF;
     UITextField *mailTF;
     UILabel *textLabel1;
     UILabel *textLabel2;
+    UIButton *jobBtn;
+    UILabel *jobLabel;
     UIButton *sureBtn;
 }
 @end
@@ -33,7 +35,7 @@
 
 - (void)createView
 {
-    UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kMainScreenWidth, 44*4+0.25)];
+    UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kMainScreenWidth, 44*5+0.25)];
     bgView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:bgView];
     
@@ -49,16 +51,16 @@
     UIView *lineView1 = [self createLineView:CGRectMake(nameTF.left, nameTF.bottom, nameTF.width, 0.25) lineColor:[UIColor lightGrayColor]];
     [bgView addSubview:lineView1];
     
-    kCreateTextField(jobTF, CGRectMake(nameTF.left, nameTF.bottom, nameTF.width, 44), @"请输入您的职位信息", 16);
-    [bgView addSubview:jobTF];
+    kCreateTextField(detailTF, CGRectMake(nameTF.left, nameTF.bottom, nameTF.width, 44), @"一句话定义你自己!", 16);
+    [bgView addSubview:detailTF];
     
-    UIView *lineView2 = [self createLineView:CGRectMake(12, jobTF.bottom, kMainScreenWidth-12, 0.25) lineColor:[UIColor lightGrayColor]];
+    UIView *lineView2 = [self createLineView:CGRectMake(12, detailTF.bottom, kMainScreenWidth-12, 0.25) lineColor:[UIColor lightGrayColor]];
     [bgView addSubview:lineView2];
     
-    kCreateLabel(textLabel1, CGRectMake(12, jobTF.bottom, 50, 44), 16, RGBCOLOR(102, 102, 102), @"手机号");
+    kCreateLabel(textLabel1, CGRectMake(12, detailTF.bottom, 50, 44), 16, RGBCOLOR(102, 102, 102), @"手机号");
     [bgView addSubview:textLabel1];
     
-    kCreateTextField(phoneTF, CGRectMake(jobTF.left, jobTF.bottom, jobTF.width, jobTF.height), nil, 16);
+    kCreateTextField(phoneTF, CGRectMake(detailTF.left, detailTF.bottom, detailTF.width, detailTF.height), nil, 16);
     [bgView addSubview:phoneTF];
     
     UIView *lineView3 = [self createLineView:CGRectMake(12, textLabel1.bottom, kMainScreenWidth-12, 0.5) lineColor:[UIColor lightGrayColor]];
@@ -67,11 +69,25 @@
     kCreateLabel(textLabel2, CGRectMake(textLabel1.left, textLabel1.bottom, textLabel1.width, textLabel1.height), 16, RGBCOLOR(102, 102, 102), @"邮箱");
     [bgView addSubview:textLabel2];
     
-    kCreateTextField(mailTF, CGRectMake(phoneTF.left, phoneTF.bottom, jobTF.width, jobTF.height), nil, 16);
+    kCreateTextField(mailTF, CGRectMake(phoneTF.left, phoneTF.bottom, detailTF.width, detailTF.height), nil, 16);
     [bgView addSubview:mailTF];
     
-    UIView *lineView4 = [self createLineView:CGRectMake(0, mailTF.bottom, kMainScreenWidth, 0.5) lineColor:[UIColor lightGrayColor]];
+    UIView *lineView4 = [self createLineView:CGRectMake(12, mailTF.bottom, kMainScreenWidth, 0.5) lineColor:[UIColor lightGrayColor]];
     [bgView addSubview:lineView4];
+    
+    kCreateButton(jobBtn, CGRectMake(0, mailTF.bottom, kMainScreenWidth, 44), nil, nil, nil, 0, nil);
+    [jobBtn addTarget:self action:@selector(touchJobBtn) forControlEvents:UIControlEventTouchDown];
+    [bgView addSubview:jobBtn];
+    
+    UIImageView *arrowImgView = [[UIImageView alloc] initWithFrame:CGRectMake(kMainScreenWidth-25, 14.5, 9, 15)];
+    arrowImgView.image = [UIImage imageNamed:@"arrowRight"];
+    [jobBtn addSubview:arrowImgView];
+    
+    kCreateLabel(jobLabel, CGRectMake(12, 0, 200, 44), 16, [UIColor lightGrayColor], @"请输入你的职位信息");
+    [jobBtn addSubview:jobLabel];
+    
+    UIView *lineView5 = [self createLineView:CGRectMake(0, jobBtn.bottom, kMainScreenWidth, 0.5) lineColor:[UIColor lightGrayColor]];
+    [bgView addSubview:lineView5];
     
     kCreateButton(sureBtn, CGRectMake(12, bgView.bottom+25, kMainScreenWidth-24, 40), @"确定", nil, nil, 16, [UIColor whiteColor]);
     sureBtn.backgroundColor = kBlueColor;
@@ -79,6 +95,11 @@
     [sureBtn addTarget:self action:@selector(touchSureBtn) forControlEvents:UIControlEventTouchDown];
     [self.view addSubview:sureBtn];
 
+}
+
+- (void)touchJobBtn
+{
+    MLOG(@"1");
 }
 
 - (void)touchSureBtn
@@ -92,6 +113,14 @@
     lineView.backgroundColor = aColor;
     
     return lineView;
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [nameTF resignFirstResponder];
+    [detailTF resignFirstResponder];
+    [phoneTF resignFirstResponder];
+    [mailTF resignFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning {

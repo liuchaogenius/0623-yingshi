@@ -231,10 +231,10 @@
         AppDelegate *de = (AppDelegate *)[UIApplication sharedApplication].delegate;
         RootTabBarController *tabbar = de.rootvc;
         UIViewController *currentVC = tabbar.getCurrentSelectVC;
-        EditPhotoViewController *vc = [[EditPhotoViewController alloc]
-                                       initWithPhotoArray:[_photoDictionary allValues]];
-        vc.hidesBottomBarWhenPushed = YES;
-        [currentVC.navigationController pushViewController:vc animated:YES];
+//        EditPhotoViewController *vc = [[EditPhotoViewController alloc]
+//                                       initWithPhotoArray:[_photoDictionary allValues]];
+//        vc.hidesBottomBarWhenPushed = YES;
+//        [currentVC.navigationController pushViewController:vc animated:YES];
     }];
 //    [_photoDictionary allValues];
 }

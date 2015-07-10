@@ -10,7 +10,6 @@
 #import "REFrostedViewController.h"
 @class RootTabBarController;
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
-
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) REFrostedViewController *FVC;
 @property (strong, nonatomic) RootTabBarController *rootvc;

@@ -63,7 +63,14 @@
 {
     if (section==0)
     {
-        return 4;
+        if (isMine)
+        {
+            return 3;
+        }
+        else
+        {
+            return 4;
+        }
     }
     else
     {
@@ -85,15 +92,11 @@
         }
         else if(indexPath.row==2)
         {
-            return 55;
+            return 78;
         }
         else
         {
-            if (isMine)
-            {
-                return 40;
-            }
-            else return 70;
+            return 70;
         }
     }
     else
@@ -154,28 +157,23 @@
         else if(indexPath.row==2)
         {
             DOTableViewCell3 *cell = [[DOTableViewCell3 alloc] init];
+            if (isMine)
+            {
+                UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(kMainScreenWidth-12-15, 78-15-8, 9, 15)];
+                imgView.image = IMAGE(@"arrowRight");
+                [cell addSubview:imgView];
+                UILabel *textLabel = [[UILabel alloc] initWithFrame:CGRectMake(imgView.left-30, imgView.top, 30, imgView.height)];
+                textLabel.textColor = [UIColor lightGrayColor];
+                textLabel.font=kFont12;
+                textLabel.text = @"编辑";
+                [cell addSubview:textLabel];
+            }
             return cell;
         }
         else
         {
-            if (isMine)
-            {
-                UITableViewCell *cell = [[UITableViewCell alloc] init];
-                cell.selectionStyle = UITableViewCellSelectionStyleNone;
-                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-                UILabel *textLabel = [[UILabel alloc] initWithFrame:CGRectMake(kMainScreenWidth-80, 10, 40, 20)];
-                textLabel.font = kFont16;
-                textLabel.textAlignment = NSTextAlignmentRight;
-                textLabel.text = @"编辑";
-                textLabel.textColor = [UIColor grayColor];
-                [cell addSubview:textLabel];
-                return cell;
-            }
-            else
-            {
-                DOTableViewCell4 *cell = [[DOTableViewCell4 alloc] init];
-                return cell;
-            }
+            DOTableViewCell4 *cell = [[DOTableViewCell4 alloc] init];
+            return cell;
         }
     }
     else
@@ -210,7 +208,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section==0 && indexPath.row==3)
+    if (indexPath.section==0 && indexPath.row==2)
     {
         if (isMine)
         {
