@@ -8,7 +8,7 @@
 
 #import "SecRegisterViewController.h"
 #import "JKCountDownButton.h"
-#import "RegisterManage.h"
+#import "YYUserManage.h"
 #import "SVProgressHUD.h"
 #import "ThrRegisterViewController.h"
 
@@ -17,7 +17,7 @@
 @property(nonatomic, strong) UIButton *nextBtn;
 @property(nonatomic, strong) JKCountDownButton *changeBtn;
 @property(nonatomic) int status;
-@property(nonatomic, strong) RegisterManage *manage;
+@property(nonatomic, strong) YYUserManage *manage;
 @property(nonatomic) NSMutableDictionary *userDict;
 @end
 
@@ -43,7 +43,7 @@
     self.view.backgroundColor = RGBCOLOR(237, 238, 244);
     [self setTitle:@"注册"];
     self.status = 0;
-    self.manage = [[RegisterManage alloc] init];
+    self.manage = [[YYUserManage alloc] init];
     
     UIView *backView = [[UIView alloc] initWithFrame:CGRectMake(0, 24, kMainScreenWidth-120, 35)];
     backView.backgroundColor = [UIColor whiteColor];
@@ -65,7 +65,7 @@
     [self.view addSubview:self.changeBtn];
     
     __weak UIButton *btn = self.changeBtn;
-    __weak RegisterManage *manage = self.manage;
+    __weak YYUserManage *manage = self.manage;
     __weak UITextField *textfield = self.myTextfield;
     [self.changeBtn addToucheHandler:^(JKCountDownButton*sender, NSInteger tag) {
         if (textfield.text.length == 11)

@@ -8,7 +8,7 @@
 
 #import "LoginViewController.h"
 #import "RegisterViewController.h"
-#import "LoginManage.h"
+#import "YYUserManage.h"
 
 @interface LoginViewController ()<UITextFieldDelegate>
 @property(nonatomic, strong) UIScrollView *backScrollView;
@@ -16,7 +16,7 @@
 @property(nonatomic, strong) UITextField *currentTextField;
 @property(nonatomic, strong) UIButton *loginBtn;
 @property(nonatomic, strong) UIButton *changeBtn;
-@property(nonatomic) LoginManage *manage;
+@property(nonatomic) YYUserManage *manage;
 @end
 
 @implementation LoginViewController
@@ -30,7 +30,7 @@
     [super viewDidLoad];
     self.view.backgroundColor = RGBCOLOR(155, 155, 155);
     
-    self.manage = [[LoginManage alloc] init];
+    self.manage = [[YYUserManage alloc] init];
     
     self.backScrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
     self.backScrollView.contentSize = CGSizeMake(kMainScreenWidth, kMainScreenHeight+110);
@@ -54,6 +54,7 @@
         textField.delegate = self;
         textField.placeholder = array[i];
         textField.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
+        textField.clearButtonMode = UITextFieldViewModeWhileEditing;
         if (i==1)
         {
             textField.returnKeyType = UIReturnKeyDone;
@@ -90,8 +91,16 @@
     NSString *mobile = self.currentTextField.text;
     self.currentTextField = (UITextField *)[self.backScrollView viewWithTag:11];
     NSString *password = self.currentTextField.text;
-    [self.manage loginInWithMobile:mobile andPwd:password andSucc:^{
-        
+    [self.manage loginInWithMobile:mobile andPwd:password andSucc:^(int aCode) {
+        if (aCode==1)
+        {
+            [self resignResponder];
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }
+        else
+        {
+            
+        }
     } andFail:^(NSString *aStr) {
         
     }];
@@ -117,6 +126,7 @@
 {
     [self resignResponder];
     [self dismissViewControllerAnimated:YES completion:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kLoginFailMessage object:nil];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)theTextField

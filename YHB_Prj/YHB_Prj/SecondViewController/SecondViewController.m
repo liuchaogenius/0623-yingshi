@@ -7,16 +7,22 @@
 //
 
 #import "SecondViewController.h"
+#import "IntroduceWebView.h"
 
 @interface SecondViewController ()
-
+{
+    IntroduceWebView *webView;
+}
 @end
 
 @implementation SecondViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self settitleLabel:@"品牌页"];
+    webView = [[IntroduceWebView alloc] initWithFrame:CGRectMake(0, 0, kMainScreenWidth, kMainScreenHeight-49-62)];
+    [webView loadUrl:@"http://www.aclili.com:3040/brand/brand.html"];
+    [self.view addSubview:webView];
 }
 
 - (void)didReceiveMemoryWarning {

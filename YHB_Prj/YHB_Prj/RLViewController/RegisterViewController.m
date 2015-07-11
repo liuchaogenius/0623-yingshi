@@ -50,6 +50,7 @@
         textField.tag = i+10;
         textField.delegate = self;
         textField.placeholder = array[i];
+        textField.clearButtonMode = UITextFieldViewModeWhileEditing;
         if (i!=0)
         {
             textField.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
@@ -114,6 +115,7 @@
 {
     [self resignResponder];
     [self dismissViewControllerAnimated:YES completion:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kLoginFailMessage object:nil];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)theTextField

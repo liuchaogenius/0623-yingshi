@@ -13,8 +13,8 @@
 #import "LSNavigationController.h"
 #import "YHBAlbumViewController.h"
 #import "EditPhotoViewController.h"
-#import "YHBUser.h"
-#import "RLViewController.h"
+#import "LoginViewController.h"
+#import "YYUser.h"
 
 @interface RootTabBarController ()<UITabBarControllerDelegate, UIActionSheetDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 {
@@ -29,7 +29,7 @@
     UINavigationController *testnav;
     BOOL isGoBack;
 }
-@property(nonatomic, strong) RLViewController *loginVC;
+@property(nonatomic, strong) LoginViewController *loginVC;
 @property(nonatomic, strong) LSNavigationController *loginNav;
 @end
 
@@ -44,7 +44,7 @@
     [self initTabViewController];
     [self initTabBarItem];
     [self initNotifyRegister];
-    
+        
     releaseButton = [[UIButton alloc] initWithFrame:CGRectMake(kMainScreenWidth/2-kMainScreenWidth/10, 0, kMainScreenWidth/5, 49)];
 //    [releaseButton setImage:IMAGE(@"takePhoto") forState:UIControlStateNormal];
     //    [button setBackgroundImage:[UIImage imageNamed:@"TabBarItem_nor_2"] forState:UIControlStateNormal];
@@ -66,6 +66,7 @@
 - (void)initNotifyRegister
 {
     [NotifyFactoryObject registerLoginMsgNotify:self action:@selector(showLoginViewController:)];
+    [NotifyFactoryObject registerLoginFailMsgNotify:self action:@selector(loginFail:)];
 }
 
 - (void)initTabViewController
@@ -256,6 +257,7 @@
         return NO;
     }
     oldSelectIndex = self.selectedIndex;
+    
     return YES;
 }
 
@@ -263,6 +265,13 @@
 {
     MLOG(@"tabsel = %ld", (unsigned long)tabBarController.selectedIndex);
     newSelectIndex = self.selectedIndex;
+    if (newSelectIndex==3 || newSelectIndex==4)
+    {
+        if (![YYUser sharedYYUser].isLogin)
+        {
+            [self showLoginVC];
+        }
+    }
 }
 
 
@@ -290,50 +299,26 @@
 #pragma mark show login
 - (void)showLoginViewController:(NSNotification *)aNotification
 {
-    
-    if(aNotification.object)
-    {
-        isGoBack = [[aNotification object] boolValue]; ///yes为goback  其他的不处理
-    }
-    __weak RootTabBarController *weakself = self;
-    if (![YHBUser sharedYHBUser].isLogin)
-    {
-        if(!self.loginVC)
-        {
-            self.loginVC = [[RLViewController alloc] init];
-        }
-        if(!self.loginNav)
-        {
-            self.loginNav = [[LSNavigationController alloc] initWithRootViewController:self.loginVC];
-            
-        }
+    [self showLoginVC];
+}
 
-        [self presentViewController:self.loginNav animated:YES completion:^{
-            
-        }];
-        if(!loginObserver)
-        {
-            loginObserver = [[FBKVOController alloc] initWithObserver:self];
-        }
-        [loginObserver observe:self.loginVC keyPath:@"type" options:NSKeyValueObservingOptionNew block:^(id observer, id object, NSDictionary *change) {
-            int type = [[change objectForKey:@"new"] intValue];
-            if(type == eLoginSucc)
-            {
+- (void)loginFail:(NSNotification *)aNotificaton
+{
+    self.selectedIndex = oldSelectIndex;
+}
 
-            }
-            else if(type == eLoginBack)
-            {
-                if(isGoBack)
-                {
-                    weakself.selectedIndex = oldSelectIndex;
-                    isGoBack = NO;
-                }
-            }
-            [weakself.loginNav dismissViewControllerAnimated:YES completion:^{
-                
-            }];
-        }];
+- (void)showLoginVC
+{
+    if(!self.loginVC)
+    {
+        self.loginVC = [[LoginViewController alloc] init];
     }
+    if(!self.loginNav)
+    {
+        self.loginNav = [[LSNavigationController alloc] initWithRootViewController:self.loginVC];
+        
+    }
+    [self presentViewController:self.loginNav animated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {

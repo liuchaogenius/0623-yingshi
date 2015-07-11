@@ -20,8 +20,8 @@
 		AB24A0DD1B4B6715000453CE /* SingleUserFeedsTUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = AB24A0D21B4B6715000453CE /* SingleUserFeedsTUserInfo.m */; };
 		AB24A0E01B4B7090000453CE /* SingleUserFeedsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB24A0DF1B4B7090000453CE /* SingleUserFeedsViewController.m */; };
 		AB24A0E31B4B97ED000453CE /* SingleUserFeedsManage.m in Sources */ = {isa = PBXBuildFile; fileRef = AB24A0E21B4B97ED000453CE /* SingleUserFeedsManage.m */; };
-		AB4045191B4E4C14001D54D5 /* YHBUser.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4045181B4E4C14001D54D5 /* YHBUser.m */; };
-		AB40451C1B4E4C33001D54D5 /* YHBUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AB40451B1B4E4C33001D54D5 /* YHBUserManager.m */; };
+		AB30B1D01B50A90C002F27D7 /* YYTUser.m in Sources */ = {isa = PBXBuildFile; fileRef = AB30B1CF1B50A90C002F27D7 /* YYTUser.m */; };
+		AB30B1D31B50AF45002F27D7 /* IntroduceWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB30B1D21B50AF45002F27D7 /* IntroduceWebView.m */; };
 		AB40452A1B4F64CA001D54D5 /* BGTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4045201B4F64CA001D54D5 /* BGTableViewCell.m */; };
 		AB40452B1B4F64CA001D54D5 /* DOTableViewCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4045231B4F64CA001D54D5 /* DOTableViewCell1.m */; };
 		AB40452C1B4F64CA001D54D5 /* DOTableViewCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4045251B4F64CA001D54D5 /* DOTableViewCell2.m */; };
@@ -52,7 +52,6 @@
 		AB829B4C1B4041B500594478 /* ResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB829B4B1B4041B500594478 /* ResultViewController.m */; };
 		AB9BF8AC1B3D966200FE7099 /* SlideImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB9BF8AB1B3D966200FE7099 /* SlideImageView.m */; };
 		AB9D13061B3BE41B00208E3A /* ThrRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB9D13051B3BE41B00208E3A /* ThrRegisterViewController.m */; };
-		AB9D130C1B3BEBC100208E3A /* LoginManage.m in Sources */ = {isa = PBXBuildFile; fileRef = AB9D130B1B3BEBC100208E3A /* LoginManage.m */; };
 		ABA9F53F1B40CD8B0047DD1A /* IndustryCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = ABA9F5371B40CD8B0047DD1A /* IndustryCategory.m */; };
 		ABA9F5401B40CD8B0047DD1A /* IndustryData.m in Sources */ = {isa = PBXBuildFile; fileRef = ABA9F5391B40CD8B0047DD1A /* IndustryData.m */; };
 		ABA9F5411B40CD8B0047DD1A /* IndustryIndustries.m in Sources */ = {isa = PBXBuildFile; fileRef = ABA9F53C1B40CD8B0047DD1A /* IndustryIndustries.m */; };
@@ -65,12 +64,15 @@
 		ABC48CFC1B3FB392004D234A /* UIView+REFrostedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC48CF51B3FB392004D234A /* UIView+REFrostedViewController.m */; };
 		ABC48CFD1B3FB392004D234A /* UIViewController+REFrostedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC48CF71B3FB392004D234A /* UIViewController+REFrostedViewController.m */; };
 		ABC48D001B3FB6C3004D234A /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC48CFF1B3FB6C3004D234A /* MenuViewController.m */; };
+		ABC957C91B4FF3400030C3BB /* YYUser.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC957C81B4FF3400030C3BB /* YYUser.m */; };
+		ABC957CC1B4FF34E0030C3BB /* YYUserManage.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC957CB1B4FF34E0030C3BB /* YYUserManage.m */; };
+		ABC957CF1B4FF36C0030C3BB /* YYDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC957CE1B4FF36C0030C3BB /* YYDataService.m */; };
+		ABC957D51B4FF6C70030C3BB /* YYTUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC957D41B4FF6C70030C3BB /* YYTUserInfo.m */; };
 		ABCF2A301B3AF6A300C5CA48 /* RLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABCF2A2F1B3AF6A300C5CA48 /* RLViewController.m */; };
 		ABCF2A331B3AFF0A00C5CA48 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABCF2A321B3AFF0A00C5CA48 /* RegisterViewController.m */; };
 		ABCF2A361B3B83F900C5CA48 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABCF2A351B3B83F900C5CA48 /* LoginViewController.m */; };
 		ABCF2A391B3B892800C5CA48 /* SecRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABCF2A381B3B892800C5CA48 /* SecRegisterViewController.m */; };
 		ABCF2A3D1B3B935B00C5CA48 /* JKCountDownButton.m in Sources */ = {isa = PBXBuildFile; fileRef = ABCF2A3C1B3B935B00C5CA48 /* JKCountDownButton.m */; };
-		ABCF2A441B3B956D00C5CA48 /* RegisterManage.m in Sources */ = {isa = PBXBuildFile; fileRef = ABCF2A431B3B956D00C5CA48 /* RegisterManage.m */; };
 		ABF460FA1B3FEDFB001E781D /* FirstTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF460F91B3FEDFB001E781D /* FirstTableViewCell.m */; };
 		ABF460FD1B3FEE07001E781D /* SecondTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF460FC1B3FEE07001E781D /* SecondTableViewCell.m */; };
 		ABF7AF241B3E758A0028BB05 /* YHBAlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF7AF1F1B3E758A0028BB05 /* YHBAlbumViewController.m */; };
@@ -176,10 +178,10 @@
 		AB24A0DF1B4B7090000453CE /* SingleUserFeedsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleUserFeedsViewController.m; sourceTree = "<group>"; };
 		AB24A0E11B4B97ED000453CE /* SingleUserFeedsManage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleUserFeedsManage.h; sourceTree = "<group>"; };
 		AB24A0E21B4B97ED000453CE /* SingleUserFeedsManage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleUserFeedsManage.m; sourceTree = "<group>"; };
-		AB4045171B4E4C14001D54D5 /* YHBUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHBUser.h; sourceTree = "<group>"; };
-		AB4045181B4E4C14001D54D5 /* YHBUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHBUser.m; sourceTree = "<group>"; };
-		AB40451A1B4E4C33001D54D5 /* YHBUserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHBUserManager.h; sourceTree = "<group>"; };
-		AB40451B1B4E4C33001D54D5 /* YHBUserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHBUserManager.m; sourceTree = "<group>"; };
+		AB30B1CE1B50A90C002F27D7 /* YYTUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTUser.h; sourceTree = "<group>"; };
+		AB30B1CF1B50A90C002F27D7 /* YYTUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTUser.m; sourceTree = "<group>"; };
+		AB30B1D11B50AF45002F27D7 /* IntroduceWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroduceWebView.h; sourceTree = "<group>"; };
+		AB30B1D21B50AF45002F27D7 /* IntroduceWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroduceWebView.m; sourceTree = "<group>"; };
 		AB40451D1B4E4D04001D54D5 /* SynthesizeSingleton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SynthesizeSingleton.h; sourceTree = "<group>"; };
 		AB40451F1B4F64CA001D54D5 /* BGTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGTableViewCell.h; sourceTree = "<group>"; };
 		AB4045201B4F64CA001D54D5 /* BGTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGTableViewCell.m; sourceTree = "<group>"; };
@@ -244,8 +246,6 @@
 		AB9BF8AB1B3D966200FE7099 /* SlideImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideImageView.m; sourceTree = "<group>"; };
 		AB9D13041B3BE41B00208E3A /* ThrRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThrRegisterViewController.h; sourceTree = "<group>"; };
 		AB9D13051B3BE41B00208E3A /* ThrRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThrRegisterViewController.m; sourceTree = "<group>"; };
-		AB9D130A1B3BEBC100208E3A /* LoginManage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginManage.h; sourceTree = "<group>"; };
-		AB9D130B1B3BEBC100208E3A /* LoginManage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginManage.m; sourceTree = "<group>"; };
 		ABA9F5361B40CD8B0047DD1A /* IndustryCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndustryCategory.h; sourceTree = "<group>"; };
 		ABA9F5371B40CD8B0047DD1A /* IndustryCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndustryCategory.m; sourceTree = "<group>"; };
 		ABA9F5381B40CD8B0047DD1A /* IndustryData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndustryData.h; sourceTree = "<group>"; };
@@ -271,6 +271,14 @@
 		ABC48CF71B3FB392004D234A /* UIViewController+REFrostedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+REFrostedViewController.m"; sourceTree = "<group>"; };
 		ABC48CFE1B3FB6C3004D234A /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		ABC48CFF1B3FB6C3004D234A /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
+		ABC957C71B4FF3400030C3BB /* YYUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYUser.h; sourceTree = "<group>"; };
+		ABC957C81B4FF3400030C3BB /* YYUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYUser.m; sourceTree = "<group>"; };
+		ABC957CA1B4FF34E0030C3BB /* YYUserManage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYUserManage.h; sourceTree = "<group>"; };
+		ABC957CB1B4FF34E0030C3BB /* YYUserManage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYUserManage.m; sourceTree = "<group>"; };
+		ABC957CD1B4FF36C0030C3BB /* YYDataService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYDataService.h; sourceTree = "<group>"; };
+		ABC957CE1B4FF36C0030C3BB /* YYDataService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYDataService.m; sourceTree = "<group>"; };
+		ABC957D31B4FF6C70030C3BB /* YYTUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTUserInfo.h; sourceTree = "<group>"; };
+		ABC957D41B4FF6C70030C3BB /* YYTUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTUserInfo.m; sourceTree = "<group>"; };
 		ABCF2A2E1B3AF6A300C5CA48 /* RLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RLViewController.h; sourceTree = "<group>"; };
 		ABCF2A2F1B3AF6A300C5CA48 /* RLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RLViewController.m; sourceTree = "<group>"; };
 		ABCF2A311B3AFF0A00C5CA48 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
@@ -281,8 +289,6 @@
 		ABCF2A381B3B892800C5CA48 /* SecRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecRegisterViewController.m; sourceTree = "<group>"; };
 		ABCF2A3B1B3B935B00C5CA48 /* JKCountDownButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKCountDownButton.h; sourceTree = "<group>"; };
 		ABCF2A3C1B3B935B00C5CA48 /* JKCountDownButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKCountDownButton.m; sourceTree = "<group>"; };
-		ABCF2A421B3B956D00C5CA48 /* RegisterManage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterManage.h; sourceTree = "<group>"; };
-		ABCF2A431B3B956D00C5CA48 /* RegisterManage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterManage.m; sourceTree = "<group>"; };
 		ABF460F81B3FEDFB001E781D /* FirstTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstTableViewCell.h; sourceTree = "<group>"; };
 		ABF460F91B3FEDFB001E781D /* FirstTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstTableViewCell.m; sourceTree = "<group>"; };
 		ABF460FB1B3FEE07001E781D /* SecondTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondTableViewCell.h; sourceTree = "<group>"; };
@@ -473,10 +479,16 @@
 			isa = PBXGroup;
 			children = (
 				AB40451D1B4E4D04001D54D5 /* SynthesizeSingleton.h */,
-				AB4045171B4E4C14001D54D5 /* YHBUser.h */,
-				AB4045181B4E4C14001D54D5 /* YHBUser.m */,
-				AB40451A1B4E4C33001D54D5 /* YHBUserManager.h */,
-				AB40451B1B4E4C33001D54D5 /* YHBUserManager.m */,
+				ABC957C71B4FF3400030C3BB /* YYUser.h */,
+				ABC957C81B4FF3400030C3BB /* YYUser.m */,
+				ABC957CA1B4FF34E0030C3BB /* YYUserManage.h */,
+				ABC957CB1B4FF34E0030C3BB /* YYUserManage.m */,
+				ABC957CD1B4FF36C0030C3BB /* YYDataService.h */,
+				ABC957CE1B4FF36C0030C3BB /* YYDataService.m */,
+				ABC957D31B4FF6C70030C3BB /* YYTUserInfo.h */,
+				ABC957D41B4FF6C70030C3BB /* YYTUserInfo.m */,
+				AB30B1CE1B50A90C002F27D7 /* YYTUser.h */,
+				AB30B1CF1B50A90C002F27D7 /* YYTUser.m */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -619,7 +631,6 @@
 		ABCF2A2D1B3AF69000C5CA48 /* RLViewController */ = {
 			isa = PBXGroup;
 			children = (
-				ABCF2A3E1B3B954200C5CA48 /* RLManage */,
 				ABCF2A2E1B3AF6A300C5CA48 /* RLViewController.h */,
 				ABCF2A2F1B3AF6A300C5CA48 /* RLViewController.m */,
 				ABCF2A311B3AFF0A00C5CA48 /* RegisterViewController.h */,
@@ -643,17 +654,6 @@
 				ABCF2A3C1B3B935B00C5CA48 /* JKCountDownButton.m */,
 			);
 			path = JKCountDownButton;
-			sourceTree = "<group>";
-		};
-		ABCF2A3E1B3B954200C5CA48 /* RLManage */ = {
-			isa = PBXGroup;
-			children = (
-				ABCF2A421B3B956D00C5CA48 /* RegisterManage.h */,
-				ABCF2A431B3B956D00C5CA48 /* RegisterManage.m */,
-				AB9D130A1B3BEBC100208E3A /* LoginManage.h */,
-				AB9D130B1B3BEBC100208E3A /* LoginManage.m */,
-			);
-			path = RLManage;
 			sourceTree = "<group>";
 		};
 		ABF460F71B3FE90B001E781D /* Cells */ = {
@@ -1023,6 +1023,8 @@
 		FF2A6C8F1A0F3CC9001607AC /* SecondViewController */ = {
 			isa = PBXGroup;
 			children = (
+				AB30B1D11B50AF45002F27D7 /* IntroduceWebView.h */,
+				AB30B1D21B50AF45002F27D7 /* IntroduceWebView.m */,
 				FF2A6C941A0F3D06001607AC /* SecondViewController.h */,
 				FF2A6C951A0F3D06001607AC /* SecondViewController.m */,
 			);
@@ -1159,7 +1161,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				ABA9F5451B40D9AD0047DD1A /* IndustryManage.m in Sources */,
-				AB4045191B4E4C14001D54D5 /* YHBUser.m in Sources */,
 				ABF460FD1B3FEE07001E781D /* SecondTableViewCell.m in Sources */,
 				AB9BF8AC1B3D966200FE7099 /* SlideImageView.m in Sources */,
 				AB24A0D61B4B6715000453CE /* SingleUserFeedsTCommentAndUserVOList.m in Sources */,
@@ -1168,14 +1169,17 @@
 				AB45C4AA1B3F9710000F48FB /* FirstTPostUserFeedsUserVO.m in Sources */,
 				FF2A6C751A0F3B7B001607AC /* UIImage+GIF.m in Sources */,
 				FF2A6CA41A0F40B0001607AC /* ThreadSafeMutableArry.m in Sources */,
+				AB30B1D01B50A90C002F27D7 /* YYTUser.m in Sources */,
 				FF2A6C881A0F3B8A001607AC /* UIScrollView+SVInfiniteScrolling.m in Sources */,
 				AB45C4971B3F9645000F48FB /* FirstManage.m in Sources */,
 				FF3C200B1A2F2B330081D3C7 /* NotifyFactoryObject.m in Sources */,
 				AB4863B91B411B6200120CE7 /* InviteViewController.m in Sources */,
+				ABC957CC1B4FF34E0030C3BB /* YYUserManage.m in Sources */,
 				FF2A6C3A1A0F3B59001607AC /* NSData+Base64.m in Sources */,
 				FF2A6C2F1A0F3B50001607AC /* AFURLConnectionOperation.m in Sources */,
 				FF2A6C331A0F3B50001607AC /* UIImageView+AFNetworking.m in Sources */,
 				ABA9F5401B40CD8B0047DD1A /* IndustryData.m in Sources */,
+				AB30B1D31B50AF45002F27D7 /* IntroduceWebView.m in Sources */,
 				ABF7AF261B3E758A0028BB05 /* YHBPhotoViewController.m in Sources */,
 				ABCF2A3D1B3B935B00C5CA48 /* JKCountDownButton.m in Sources */,
 				AB4EF54F1B4230810011D76E /* ResultTableViewCell.m in Sources */,
@@ -1210,7 +1214,6 @@
 				ABC48CF81B3FB392004D234A /* RECommonFunctions.m in Sources */,
 				FF2A6C0C1A0F3A01001607AC /* UIImage+ImageEffects.m in Sources */,
 				ABF7AF251B3E758A0028BB05 /* YHBPhotoImageView.m in Sources */,
-				ABCF2A441B3B956D00C5CA48 /* RegisterManage.m in Sources */,
 				FF2A6C791A0F3B7B001607AC /* UIImageView+WebCache.m in Sources */,
 				FF2A6C021A0F398D001607AC /* BaseViewController.m in Sources */,
 				AB40452E1B4F64CA001D54D5 /* DOTableViewCell4.m in Sources */,
@@ -1218,6 +1221,7 @@
 				FF2A6C301A0F3B50001607AC /* AFXMLRequestOperation.m in Sources */,
 				AB45C4AD1B3F9710000F48FB /* FirstTUserFeedsVOList.m in Sources */,
 				AB51CAC81B4AA2960003C822 /* ResultTUser.m in Sources */,
+				ABC957C91B4FF3400030C3BB /* YYUser.m in Sources */,
 				FF2A6C6C1A0F3B7B001607AC /* NSData+ImageContentType.m in Sources */,
 				AB4BEF4D1B47FBD6003ECA98 /* DetailViewController.m in Sources */,
 				FF2A6C701A0F3B7B001607AC /* SDWebImageDownloader.m in Sources */,
@@ -1226,7 +1230,6 @@
 				FF2A6C2D1A0F3B50001607AC /* AFNetworkActivityIndicatorManager.m in Sources */,
 				FF2A6C781A0F3B7B001607AC /* UIImageView+HighlightedWebCache.m in Sources */,
 				AB51CAC51B4AA2960003C822 /* ResultData.m in Sources */,
-				AB9D130C1B3BEBC100208E3A /* LoginManage.m in Sources */,
 				FF2A6C2A1A0F3B50001607AC /* AFHTTPRequestOperation.m in Sources */,
 				ABCF2A361B3B83F900C5CA48 /* LoginViewController.m in Sources */,
 				AB24A0D51B4B6715000453CE /* SingleUserFeedsTComment.m in Sources */,
@@ -1245,8 +1248,8 @@
 				FF2A6C2B1A0F3B50001607AC /* AFImageRequestOperation.m in Sources */,
 				AB45C4B11B3F9B95000F48FB /* ReleaseViewController.m in Sources */,
 				AB24A0D91B4B6715000453CE /* SingleUserFeedsTReviceUserVO.m in Sources */,
-				AB40451C1B4E4C33001D54D5 /* YHBUserManager.m in Sources */,
 				AB51CACC1B4AA2AD0003C822 /* ResultManage.m in Sources */,
+				ABC957D51B4FF6C70030C3BB /* YYTUserInfo.m in Sources */,
 				AB24A0D41B4B6715000453CE /* SingleUserFeedsModel.m in Sources */,
 				FF2A6C6B1A0F3B7B001607AC /* MKAnnotationView+WebCache.m in Sources */,
 				AB40452D1B4F64CA001D54D5 /* DOTableViewCell3.m in Sources */,
@@ -1265,6 +1268,7 @@
 				ABC48D001B3FB6C3004D234A /* MenuViewController.m in Sources */,
 				ABC48CF91B3FB392004D234A /* REFrostedContainerViewController.m in Sources */,
 				AB40452B1B4F64CA001D54D5 /* DOTableViewCell1.m in Sources */,
+				ABC957CF1B4FF36C0030C3BB /* YYDataService.m in Sources */,
 				ABF7AF241B3E758A0028BB05 /* YHBAlbumViewController.m in Sources */,
 				FF2A6C711A0F3B7B001607AC /* SDWebImageDownloaderOperation.m in Sources */,
 				FF2A6C2C1A0F3B50001607AC /* AFJSONRequestOperation.m in Sources */,
