@@ -11,31 +11,50 @@
 #import "EditViewController.h"
 #import "BGTableViewCell.h"
 #import "AddBGViewController.h"
+#import "YYUser.h"
+#import "DetailVCManage.h"
 
 
 @interface DetailViewController ()<UITableViewDataSource, UITableViewDelegate>
 {
     BOOL isMine;
     int bgCount;
+    NSString *userId;
+    DetailVCData *myData;
+    DetailVCManage *manage;
 }
-
 @property(nonatomic, strong) UITableView *myTableView;
 @end
 
 @implementation DetailViewController
 
-- (instancetype)initWithIsMine:(BOOL)aBool
+- (instancetype)initWithData:(DetailVCData *)aData
 {
     if (self = [super init])
     {
-        isMine = aBool;
+        myData = aData;
+        isMine = YES;
+    }
+    return self;
+}
+
+- (instancetype)initWithUserId:(NSString *)aUserId
+{
+    if (self = [super init])
+    {
+        userId = aUserId;
+        if ([YYUser sharedYYUser].isLogin && [YYUser sharedYYUser].userInfo.userId==[aUserId intValue])
+        {
+            isMine = YES;
+        }
+        else isMine = NO;
     }
     return self;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    bgCount=2;
+    bgCount=0;
     
     int tableH;
     if (isMine)
@@ -51,7 +70,21 @@
     self.myTableView.dataSource = self;
     [self.view addSubview:self.myTableView];
     
-    
+    if (userId)
+    {
+        manage = [[DetailVCManage alloc] init];
+        [manage getUserDetailWithUserId:userId andSucc:^(DetailVCData *data) {
+            myData = data;
+            bgCount = (int)data.tUserVO.tUserProfileList.count;
+            [self.myTableView reloadData];
+        } andFail:^(NSString *aStr) {
+            
+        }];
+    }
+    if (myData)
+    {
+        bgCount = (int)myData.tUserVO.tUserProfileList.count;
+    }
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -84,7 +117,7 @@
     {
         if (indexPath.row==0)
         {
-            return 200;
+            return kMainScreenWidth;
         }
         else if(indexPath.row==1)
         {
@@ -147,16 +180,19 @@
         if (indexPath.row==0)
         {
             DOTableViewCell1 *cell = [[DOTableViewCell1 alloc] init];
+            if (myData) [cell setCellWithData:myData.tUserVO.tUserInfo];
             return cell;
         }
         else if(indexPath.row==1)
         {
             DOTableViewCell2 *cell = [[DOTableViewCell2 alloc] init];
+            if (myData) [cell setCellWithData:myData.tUserVO.tUserInfo];
             return cell;
         }
         else if(indexPath.row==2)
         {
             DOTableViewCell3 *cell = [[DOTableViewCell3 alloc] init];
+            if (myData) [cell setCellWithData:myData.tUserVO.tUserInfo];
             if (isMine)
             {
                 UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(kMainScreenWidth-12-15, 78-15-8, 9, 15)];
@@ -198,7 +234,9 @@
             {
                 cell = [[BGTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:bgCell];
             }
-            
+            NSArray *array = myData.tUserVO.tUserProfileList;
+            DetailVCTUserProfileList *profile = [array objectAtIndex:indexPath.row];
+            [cell setCellWithData:profile];
             return cell;
         }
     }
@@ -224,6 +262,38 @@
     {
         AddBGViewController *vc = [[AddBGViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
+    }
+}
+
+#pragma mark tableview delete
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (isMine)
+    {
+        if (indexPath.section==1&&indexPath.row!=bgCount) return YES;
+        else return NO;
+    }
+    else
+    {
+        return NO;
+    }
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (editingStyle == UITableViewCellEditingStyleDelete && indexPath.section==1)
+    {
+        NSMutableArray *mutableArray = [myData.tUserVO.tUserProfileList mutableCopy];
+        [mutableArray removeObjectAtIndex:indexPath.row];
+        NSArray *array = [NSArray arrayWithArray:mutableArray];
+        myData.tUserVO.tUserProfileList = array;
+        bgCount = (int)myData.tUserVO.tUserProfileList.count;
+        // Delete the row from the data source.
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        
+    }
+    else if (editingStyle == UITableViewCellEditingStyleInsert) {
+        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
     }
 }
 

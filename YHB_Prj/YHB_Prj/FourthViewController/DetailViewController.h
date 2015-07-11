@@ -7,8 +7,10 @@
 //
 
 #import "BaseViewController.h"
+#import "DetailVCData.h"
 
 @interface DetailViewController : BaseViewController
 
-- (instancetype)initWithIsMine:(BOOL)aBool;
+- (instancetype)initWithUserId:(NSString *)aUserId;
+- (instancetype)initWithData:(DetailVCData *)aData;
 @end

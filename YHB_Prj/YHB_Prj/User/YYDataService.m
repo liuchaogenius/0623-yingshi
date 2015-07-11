@@ -52,12 +52,40 @@
     return TUserInfo;
 }
 
+- (void)saveUserFaceImg:(UIImage *)aImage
+{
+    NSData *faceData = [NSKeyedArchiver archivedDataWithRootObject:aImage];
+//    NSData *bgData = [NSKeyedArchiver archivedDataWithRootObject:aBgImg];
+    
+    NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
+    [user setObject:faceData forKey:@"faceImg"];
+//    [user setObject:bgData forKey:@"bgImg"];
+}
+
+- (UIImage *)getFaceImg
+{
+    NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
+    NSData *data = [user objectForKey:@"faceImg"];
+    UIImage *img = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    return img;
+}
+
+//- (UIImage *)getBgImg
+//{
+//    NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
+//    NSData *data = [user objectForKey:@"bgImg"];
+//    UIImage *img = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+//    return img;
+//}
+
 - (void)clearUserInfo
 {
     NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
     
     [defaults removeObjectForKey:@"TUserInfo"];
     [defaults removeObjectForKey:@"TUser"];
+    [defaults removeObjectForKey:@"bgImg"];
+    [defaults removeObjectForKey:@"faceImg"];
     
     [defaults synchronize];
 }

@@ -14,4 +14,5 @@
 #define kLoginForUserMessage @"loginforuser"
 #define kLoginSuccessMessae @"loginsuccess" //登陆成功发送消息
 #define kLoginFailMessage @"loginFail"
+#define kLogOut @"logOut"
 #endif

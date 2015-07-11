@@ -15,4 +15,6 @@
 //};
 @interface LoginViewController : BaseViewController
 
+- (void)clearTextField;
+
 @end

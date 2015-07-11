@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DetailVCTUserProfileList.h"
 
 @interface BGTableViewCell : UITableViewCell
+
+- (void)setCellWithData:(DetailVCTUserProfileList *)aProfile;
 
 @end

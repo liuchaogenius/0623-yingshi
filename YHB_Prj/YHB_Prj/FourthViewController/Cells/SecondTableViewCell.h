@@ -10,4 +10,5 @@
 
 @interface SecondTableViewCell : UITableViewCell
 
+- (void)setCellArray:(NSArray *)feedList;
 @end

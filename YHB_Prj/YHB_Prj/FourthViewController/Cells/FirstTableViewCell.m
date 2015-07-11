@@ -7,6 +7,7 @@
 //
 
 #import "FirstTableViewCell.h"
+#import "YYUser.h"
 
 @interface FirstTableViewCell()
 {
@@ -31,11 +32,19 @@
         [topImgView clipsToBounds];
         [self addSubview:topImgView];
         
-        kCreateLabel(nameLabel, CGRectMake(topImgView.right+15, topImgView.top+2, 100, 20), 16, [UIColor blackColor], @"王慧");
+        kCreateLabel(nameLabel, CGRectMake(topImgView.right+15, topImgView.top+2, 100, 20), 16, [UIColor blackColor], @"用户名");
         [self addSubview:nameLabel];
         
-        kCreateLabel(detailLabel, CGRectMake(nameLabel.left, nameLabel.bottom, nameLabel.width, 20), 12, [UIColor lightGrayColor], @"影视广告编导");
+        kCreateLabel(detailLabel, CGRectMake(nameLabel.left, nameLabel.bottom, kMainScreenWidth-nameLabel.left-15, 20), 12, [UIColor lightGrayColor], @"一句话定义你自己！");
         [self addSubview:detailLabel];
+        
+        YYUser *user = [YYUser sharedYYUser];
+        if (user.isLogin)
+        {
+            topImgView.image = user.localHeadUrl;
+            nameLabel.text = user.userInfo.nickName;
+            detailLabel.text = user.userInfo.introduce;
+        }
     }
     return self;
 }

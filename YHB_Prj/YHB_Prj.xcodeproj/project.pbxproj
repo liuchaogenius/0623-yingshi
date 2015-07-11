@@ -22,6 +22,14 @@
 		AB24A0E31B4B97ED000453CE /* SingleUserFeedsManage.m in Sources */ = {isa = PBXBuildFile; fileRef = AB24A0E21B4B97ED000453CE /* SingleUserFeedsManage.m */; };
 		AB30B1D01B50A90C002F27D7 /* YYTUser.m in Sources */ = {isa = PBXBuildFile; fileRef = AB30B1CF1B50A90C002F27D7 /* YYTUser.m */; };
 		AB30B1D31B50AF45002F27D7 /* IntroduceWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB30B1D21B50AF45002F27D7 /* IntroduceWebView.m */; };
+		AB3139491B50ED3600CC3457 /* DetailVCManage.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3139481B50ED3600CC3457 /* DetailVCManage.m */; };
+		AB31395A1B50ED9E00CC3457 /* DetailVCData.m in Sources */ = {isa = PBXBuildFile; fileRef = AB31394C1B50ED9E00CC3457 /* DetailVCData.m */; };
+		AB31395B1B50ED9E00CC3457 /* DetailVCListHasPicFeeds.m in Sources */ = {isa = PBXBuildFile; fileRef = AB31394E1B50ED9E00CC3457 /* DetailVCListHasPicFeeds.m */; };
+		AB31395C1B50ED9E00CC3457 /* DetailVCModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3139501B50ED9E00CC3457 /* DetailVCModel.m */; };
+		AB31395D1B50ED9E00CC3457 /* DetailVCTUser.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3139531B50ED9E00CC3457 /* DetailVCTUser.m */; };
+		AB31395E1B50ED9E00CC3457 /* DetailVCTUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3139551B50ED9E00CC3457 /* DetailVCTUserInfo.m */; };
+		AB31395F1B50ED9E00CC3457 /* DetailVCTUserProfileList.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3139571B50ED9E00CC3457 /* DetailVCTUserProfileList.m */; };
+		AB3139601B50ED9E00CC3457 /* DetailVCTUserVO.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3139591B50ED9E00CC3457 /* DetailVCTUserVO.m */; };
 		AB40452A1B4F64CA001D54D5 /* BGTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4045201B4F64CA001D54D5 /* BGTableViewCell.m */; };
 		AB40452B1B4F64CA001D54D5 /* DOTableViewCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4045231B4F64CA001D54D5 /* DOTableViewCell1.m */; };
 		AB40452C1B4F64CA001D54D5 /* DOTableViewCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4045251B4F64CA001D54D5 /* DOTableViewCell2.m */; };
@@ -182,6 +190,23 @@
 		AB30B1CF1B50A90C002F27D7 /* YYTUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTUser.m; sourceTree = "<group>"; };
 		AB30B1D11B50AF45002F27D7 /* IntroduceWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroduceWebView.h; sourceTree = "<group>"; };
 		AB30B1D21B50AF45002F27D7 /* IntroduceWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroduceWebView.m; sourceTree = "<group>"; };
+		AB3139471B50ED3600CC3457 /* DetailVCManage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailVCManage.h; sourceTree = "<group>"; };
+		AB3139481B50ED3600CC3457 /* DetailVCManage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailVCManage.m; sourceTree = "<group>"; };
+		AB31394B1B50ED9E00CC3457 /* DetailVCData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailVCData.h; sourceTree = "<group>"; };
+		AB31394C1B50ED9E00CC3457 /* DetailVCData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailVCData.m; sourceTree = "<group>"; };
+		AB31394D1B50ED9E00CC3457 /* DetailVCListHasPicFeeds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailVCListHasPicFeeds.h; sourceTree = "<group>"; };
+		AB31394E1B50ED9E00CC3457 /* DetailVCListHasPicFeeds.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailVCListHasPicFeeds.m; sourceTree = "<group>"; };
+		AB31394F1B50ED9E00CC3457 /* DetailVCModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailVCModel.h; sourceTree = "<group>"; };
+		AB3139501B50ED9E00CC3457 /* DetailVCModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailVCModel.m; sourceTree = "<group>"; };
+		AB3139511B50ED9E00CC3457 /* DetailVCModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailVCModels.h; sourceTree = "<group>"; };
+		AB3139521B50ED9E00CC3457 /* DetailVCTUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailVCTUser.h; sourceTree = "<group>"; };
+		AB3139531B50ED9E00CC3457 /* DetailVCTUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailVCTUser.m; sourceTree = "<group>"; };
+		AB3139541B50ED9E00CC3457 /* DetailVCTUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailVCTUserInfo.h; sourceTree = "<group>"; };
+		AB3139551B50ED9E00CC3457 /* DetailVCTUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailVCTUserInfo.m; sourceTree = "<group>"; };
+		AB3139561B50ED9E00CC3457 /* DetailVCTUserProfileList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailVCTUserProfileList.h; sourceTree = "<group>"; };
+		AB3139571B50ED9E00CC3457 /* DetailVCTUserProfileList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailVCTUserProfileList.m; sourceTree = "<group>"; };
+		AB3139581B50ED9E00CC3457 /* DetailVCTUserVO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailVCTUserVO.h; sourceTree = "<group>"; };
+		AB3139591B50ED9E00CC3457 /* DetailVCTUserVO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailVCTUserVO.m; sourceTree = "<group>"; };
 		AB40451D1B4E4D04001D54D5 /* SynthesizeSingleton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SynthesizeSingleton.h; sourceTree = "<group>"; };
 		AB40451F1B4F64CA001D54D5 /* BGTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGTableViewCell.h; sourceTree = "<group>"; };
 		AB4045201B4F64CA001D54D5 /* BGTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGTableViewCell.m; sourceTree = "<group>"; };
@@ -473,6 +498,37 @@
 				AB24A0D21B4B6715000453CE /* SingleUserFeedsTUserInfo.m */,
 			);
 			path = SingleUserFeedsModel;
+			sourceTree = "<group>";
+		};
+		AB3139461B50ED2100CC3457 /* FourthNetManage */ = {
+			isa = PBXGroup;
+			children = (
+				AB3139471B50ED3600CC3457 /* DetailVCManage.h */,
+				AB3139481B50ED3600CC3457 /* DetailVCManage.m */,
+			);
+			path = FourthNetManage;
+			sourceTree = "<group>";
+		};
+		AB31394A1B50ED5800CC3457 /* DetailVCModel */ = {
+			isa = PBXGroup;
+			children = (
+				AB31394B1B50ED9E00CC3457 /* DetailVCData.h */,
+				AB31394C1B50ED9E00CC3457 /* DetailVCData.m */,
+				AB31394D1B50ED9E00CC3457 /* DetailVCListHasPicFeeds.h */,
+				AB31394E1B50ED9E00CC3457 /* DetailVCListHasPicFeeds.m */,
+				AB31394F1B50ED9E00CC3457 /* DetailVCModel.h */,
+				AB3139501B50ED9E00CC3457 /* DetailVCModel.m */,
+				AB3139511B50ED9E00CC3457 /* DetailVCModels.h */,
+				AB3139521B50ED9E00CC3457 /* DetailVCTUser.h */,
+				AB3139531B50ED9E00CC3457 /* DetailVCTUser.m */,
+				AB3139541B50ED9E00CC3457 /* DetailVCTUserInfo.h */,
+				AB3139551B50ED9E00CC3457 /* DetailVCTUserInfo.m */,
+				AB3139561B50ED9E00CC3457 /* DetailVCTUserProfileList.h */,
+				AB3139571B50ED9E00CC3457 /* DetailVCTUserProfileList.m */,
+				AB3139581B50ED9E00CC3457 /* DetailVCTUserVO.h */,
+				AB3139591B50ED9E00CC3457 /* DetailVCTUserVO.m */,
+			);
+			path = DetailVCModel;
 			sourceTree = "<group>";
 		};
 		AB4045161B4E4BB6001D54D5 /* User */ = {
@@ -990,6 +1046,8 @@
 		FF2A6C8D1A0F3CC9001607AC /* FourthViewController */ = {
 			isa = PBXGroup;
 			children = (
+				AB31394A1B50ED5800CC3457 /* DetailVCModel */,
+				AB3139461B50ED2100CC3457 /* FourthNetManage */,
 				AB40451E1B4F64CA001D54D5 /* DetailTVCell */,
 				ABF460F71B3FE90B001E781D /* Cells */,
 				FF2A6C9A1A0F3D30001607AC /* FourthViewController.h */,
@@ -1176,6 +1234,7 @@
 				AB4863B91B411B6200120CE7 /* InviteViewController.m in Sources */,
 				ABC957CC1B4FF34E0030C3BB /* YYUserManage.m in Sources */,
 				FF2A6C3A1A0F3B59001607AC /* NSData+Base64.m in Sources */,
+				AB3139601B50ED9E00CC3457 /* DetailVCTUserVO.m in Sources */,
 				FF2A6C2F1A0F3B50001607AC /* AFURLConnectionOperation.m in Sources */,
 				FF2A6C331A0F3B50001607AC /* UIImageView+AFNetworking.m in Sources */,
 				ABA9F5401B40CD8B0047DD1A /* IndustryData.m in Sources */,
@@ -1191,6 +1250,7 @@
 				FF2A6BE31A0F3780001607AC /* AppDelegate.m in Sources */,
 				FF2A6C9C1A0F3D30001607AC /* FourthViewController.m in Sources */,
 				FF2A6C871A0F3B8A001607AC /* DataOC.mm in Sources */,
+				AB31395C1B50ED9E00CC3457 /* DetailVCModel.m in Sources */,
 				FF2A6C861A0F3B8A001607AC /* DataCenterDeal.mm in Sources */,
 				ABF460FA1B3FEDFB001E781D /* FirstTableViewCell.m in Sources */,
 				FF2A6C961A0F3D06001607AC /* SecondViewController.m in Sources */,
@@ -1235,15 +1295,18 @@
 				AB24A0D51B4B6715000453CE /* SingleUserFeedsTComment.m in Sources */,
 				FF2A6C321A0F3B50001607AC /* NetManager.m in Sources */,
 				FF3C20081A2F2A440081D3C7 /* GlobObserverObject.m in Sources */,
+				AB31395B1B50ED9E00CC3457 /* DetailVCListHasPicFeeds.m in Sources */,
 				AB51CAD01B4ABD530003C822 /* CommentTVCell.m in Sources */,
 				AB51CAC91B4AA2960003C822 /* ResultTUserInfo.m in Sources */,
 				AB24A0DD1B4B6715000453CE /* SingleUserFeedsTUserInfo.m in Sources */,
+				AB3139491B50ED3600CC3457 /* DetailVCManage.m in Sources */,
 				FF2A6BE01A0F3780001607AC /* main.m in Sources */,
 				ABC48CFD1B3FB392004D234A /* UIViewController+REFrostedViewController.m in Sources */,
 				FF2A6C311A0F3B50001607AC /* MyHttpClient.m in Sources */,
 				FF2A6C7A1A0F3B7B001607AC /* UIView+WebCacheOperation.m in Sources */,
 				ABF7AF291B3E75B10028BB05 /* YHBPhotoTableViewCell.m in Sources */,
 				ABF7AF2C1B3E7CA60028BB05 /* EditPhotoViewController.m in Sources */,
+				AB31395D1B50ED9E00CC3457 /* DetailVCTUser.m in Sources */,
 				FF2A6C6E1A0F3B7B001607AC /* SDWebImageCompat.m in Sources */,
 				FF2A6C2B1A0F3B50001607AC /* AFImageRequestOperation.m in Sources */,
 				AB45C4B11B3F9B95000F48FB /* ReleaseViewController.m in Sources */,
@@ -1261,6 +1324,7 @@
 				FF2A6C441A0F3B6D001607AC /* SVProgressHUD.m in Sources */,
 				AB4BEF4E1B47FBD6003ECA98 /* EditViewController.m in Sources */,
 				AB51CAC71B4AA2960003C822 /* ResultModel.m in Sources */,
+				AB31395F1B50ED9E00CC3457 /* DetailVCTUserProfileList.m in Sources */,
 				FF2A6C731A0F3B7B001607AC /* SDWebImagePrefetcher.m in Sources */,
 				AB24A0DB1B4B6715000453CE /* SingleUserFeedsTUserFeeds.m in Sources */,
 				FF2A6C291A0F3B50001607AC /* AFHTTPClient.m in Sources */,
@@ -1268,6 +1332,7 @@
 				ABC48D001B3FB6C3004D234A /* MenuViewController.m in Sources */,
 				ABC48CF91B3FB392004D234A /* REFrostedContainerViewController.m in Sources */,
 				AB40452B1B4F64CA001D54D5 /* DOTableViewCell1.m in Sources */,
+				AB31395A1B50ED9E00CC3457 /* DetailVCData.m in Sources */,
 				ABC957CF1B4FF36C0030C3BB /* YYDataService.m in Sources */,
 				ABF7AF241B3E758A0028BB05 /* YHBAlbumViewController.m in Sources */,
 				FF2A6C711A0F3B7B001607AC /* SDWebImageDownloaderOperation.m in Sources */,
@@ -1280,6 +1345,7 @@
 				AB9D13061B3BE41B00208E3A /* ThrRegisterViewController.m in Sources */,
 				AB4863BC1B411F7500120CE7 /* SettingsViewController.m in Sources */,
 				AB45C4AB1B3F9710000F48FB /* FirstTUser.m in Sources */,
+				AB31395E1B50ED9E00CC3457 /* DetailVCTUserInfo.m in Sources */,
 				ABA9F5411B40CD8B0047DD1A /* IndustryIndustries.m in Sources */,
 				ABCF2A391B3B892800C5CA48 /* SecRegisterViewController.m in Sources */,
 				AB24A0D71B4B6715000453CE /* SingleUserFeedsTCommentPostUserVO.m in Sources */,

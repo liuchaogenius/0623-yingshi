@@ -19,4 +19,7 @@
 - (YYTUser *)getTUser;
 - (YYTUserInfo *)getTUserInfo;
 - (void)clearUserInfo;
+- (void)saveUserFaceImg:(UIImage *)aImage;
+- (UIImage *)getFaceImg;
+//- (UIImage *)getBgImg;
 @end

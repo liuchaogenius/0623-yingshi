@@ -11,6 +11,7 @@
 #import "RootTabBarController.h"
 #import "SVProgressHUD.h"
 #import "YYUser.h"
+#import "NotifyFactoryObject.h"
 
 @interface SettingsViewController ()<UITableViewDataSource, UITableViewDelegate>
 {
@@ -44,6 +45,7 @@
     [self.navigationController popViewControllerAnimated:YES];
     [SVProgressHUD showSuccessWithStatus:@"退出成功" cover:YES offsetY:kMainScreenHeight/2.0];
     [[YYUser sharedYYUser] logoutUser];
+    [NotifyFactoryObject postNotifyMessage:kLogOut param:nil];
     [self performSelector:@selector(selectMain) withObject:nil afterDelay:0.05];
 }
 

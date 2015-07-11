@@ -12,8 +12,17 @@
 #import "InviteViewController.h"
 #import "SettingsViewController.h"
 #import "DetailViewController.h"
+#import "NotifyFactoryObject.h"
+#import "YYUser.h"
+#import "FourthViewController.h"
+#import "DetailVCManage.h"
+#import "DetailVCModels.h"
 
 @interface FourthViewController ()<UITableViewDelegate, UITableViewDataSource>
+{
+    DetailVCData *myData;
+}
+@property (nonatomic, strong) DetailVCManage *manage;
 @property(nonatomic, strong) UITableView *myTableView;
 @end
 
@@ -28,6 +37,40 @@
     self.myTableView.dataSource = self;
     self.automaticallyAdjustsScrollViewInsets = false;
     [self.view addSubview:self.myTableView];
+    
+    if ([YYUser sharedYYUser].isLogin)
+    {
+        [self getDetail];
+    }
+    
+    [NotifyFactoryObject registerLoginSuccMsgNotify:self action:@selector(getDetail)];
+    [NotifyFactoryObject registerLogOut:self action:@selector(reloadTableView)];
+}
+
+- (void)getDetail
+{
+    NSString *userId = [NSString stringWithFormat:@"%d", (int)[YYUser sharedYYUser].userInfo.userId];
+    [self.manage getUserDetailWithUserId:userId andSucc:^(DetailVCData *data) {
+        myData = data;
+        [self.myTableView reloadData];
+    } andFail:^(NSString *aStr) {
+        
+    }];
+}
+
+- (DetailVCManage *)manage
+{
+    if (!_manage)
+    {
+        _manage = [[DetailVCManage alloc] init];
+    }
+    return _manage;
+}
+
+- (void)reloadTableView
+{
+    myData = nil;
+    [self.myTableView reloadData];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
@@ -69,6 +112,10 @@
     else if (indexPath.section==1)
     {
         SecondTableViewCell *cell = [[SecondTableViewCell alloc] init];
+        if (myData)
+        {
+            [cell setCellArray:myData.listHasPicFeeds];
+        }
         return cell;
     }
     else
@@ -92,7 +139,7 @@
 {
     if (indexPath.section==0)
     {
-        DetailViewController *vc = [[DetailViewController alloc] initWithIsMine:YES];
+        DetailViewController *vc = [[DetailViewController alloc] initWithData:myData];
         vc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:vc animated:YES];
     }

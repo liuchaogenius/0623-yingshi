@@ -39,12 +39,19 @@
     [self addSubview:textLabel2];
     kCreateLabel(textLabel3, CGRectMake(15, textLabel2.bottom+7, textLabel2.width, 16), 12, [UIColor lightGrayColor], @"职位");
     [self addSubview:textLabel3];
-    kCreateLabel(phoneLabel, CGRectMake(textLabel1.right+15, textLabel1.top, 200, 16), 12, [UIColor blackColor], @"124 1223 1232");
+    kCreateLabel(phoneLabel, CGRectMake(textLabel1.right+15, textLabel1.top, 200, 16), 12, [UIColor blackColor], @"");
     [self addSubview:phoneLabel];
-    kCreateLabel(mailLabel, CGRectMake(phoneLabel.left, textLabel2.top, 200, 16), 12, [UIColor blackColor], @"12313213@qq.com");
+    kCreateLabel(mailLabel, CGRectMake(phoneLabel.left, textLabel2.top, 200, 16), 12, [UIColor blackColor], @"");
     [self addSubview:mailLabel];
-    kCreateLabel(jobLabel, CGRectMake(mailLabel.left, textLabel3.top, 200, 16), 12, [UIColor blackColor], @"影视广告编导");
+    kCreateLabel(jobLabel, CGRectMake(mailLabel.left, textLabel3.top, 200, 16), 12, [UIColor blackColor], @"");
     [self addSubview:jobLabel];
+}
+
+- (void)setCellWithData:(DetailVCTUserInfo *)aUserInfo
+{
+    if (aUserInfo.email) mailLabel.text = aUserInfo.email;
+    if (aUserInfo.mobile) phoneLabel.text = aUserInfo.mobile;
+//    if (aUserInfo.industry) jobLabel.text = aUserInfo.industry;
 }
 
 - (void)awakeFromNib {

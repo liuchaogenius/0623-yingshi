@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DetailVCTUserInfo.h"
 
 @interface DOTableViewCell2 : UITableViewCell
 
+- (void)setCellWithData:(DetailVCTUserInfo *)aUserInfo;
 @end

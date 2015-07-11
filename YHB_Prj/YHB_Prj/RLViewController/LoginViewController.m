@@ -9,6 +9,7 @@
 #import "LoginViewController.h"
 #import "RegisterViewController.h"
 #import "YYUserManage.h"
+#import "NotifyFactoryObject.h"
 
 @interface LoginViewController ()<UITextFieldDelegate>
 @property(nonatomic, strong) UIScrollView *backScrollView;
@@ -96,6 +97,7 @@
         {
             [self resignResponder];
             [self dismissViewControllerAnimated:YES completion:nil];
+            [NotifyFactoryObject postNotifyMessage:kLoginSuccessMessae param:nil];
         }
         else
         {
@@ -150,6 +152,15 @@
         }
     }
     return YES;
+}
+
+- (void)clearTextField
+{
+    for (int i=0 ; i<2; i++)
+    {
+        UITextField *TF = (UITextField *)[self.backScrollView viewWithTag:10+i];
+        TF.text = @"";
+    }
 }
 
 - (void)didReceiveMemoryWarning {

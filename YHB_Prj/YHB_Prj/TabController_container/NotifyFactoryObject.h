@@ -15,6 +15,8 @@
 + (void)registerLoginSuccMsgNotify:(id)aTarget action:(SEL)aSelector;
 //注册登录失败的消息
 + (void)registerLoginFailMsgNotify:(id)aTarget action:(SEL)aSelector;
+//登出
++ (void)registerLogOut:(id)aTarget action:(SEL)aSelector;
 //post 消息
 + (void)postNotifyMessage:(NSString *)aMessageName param:(id)aParam;
 @end

@@ -34,6 +34,8 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(YYUser);
     {
         self.user = TUser;
         self.userInfo = TUserInfo;
+//        self.localBgUrl = [[YYDataService sharedYYDataSevice] getBgImg];
+        self.localHeadUrl = [[YYDataService sharedYYDataSevice] getFaceImg];
         _isLogin = YES;
     }
 }
@@ -41,8 +43,26 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(YYUser);
 - (void)saveUserInfoWithYYTUser:(YYTUser *)aYYTUser andYYTUserInfo:(YYTUserInfo *)aYYTUserInfo
 {
     _isLogin = YES;
+    self.user = aYYTUser;
+    self.userInfo = aYYTUserInfo;
     [[YYDataService sharedYYDataSevice] saveTUser:aYYTUser];
     [[YYDataService sharedYYDataSevice] saveTUserInfo:aYYTUserInfo];
+    [self saveUserFaceImgAndBGImg];
+}
+
+- (void)saveUserFaceImgAndBGImg
+{
+    NSString *faceImgUrl;
+    NSString *BGImgUrl;
+//    kYyImgUrl(self.userInfo.faceImg, faceImgUrl);
+    kYyImgUrl(@"/userphoto/1d6b5ccba2f94f80900d32ce6136ab0b.jpg", faceImgUrl);
+//    kYyImgUrl(self.userInfo.background, BGImgUrl);
+    kYyImgUrl(@"/userphoto/1d6b5ccba2f94f80900d32ce6136ab0b.jpg", BGImgUrl);
+    UIImage *faceImg = [self getImageFromURL:faceImgUrl];
+//    UIImage *bgImg = [self getImageFromURL:BGImgUrl];
+    self.localHeadUrl = faceImg;
+//    self.localBgUrl = bgImg;
+    [[YYDataService sharedYYDataSevice] saveUserFaceImg:faceImg];
 }
 
 - (void)logoutUser

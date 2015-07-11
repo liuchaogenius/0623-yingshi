@@ -44,6 +44,20 @@
     [self addSubview:detailLabel];
 }
 
+- (void)setCellWithData:(DetailVCTUserInfo *)aUserInfo
+{
+    NSString *faceUrl;
+    kYyAImgUrl(aUserInfo.background, faceUrl);
+    [topImgView sd_setImageWithURL:[NSURL URLWithString:faceUrl]];
+    
+    nameLabel.text = aUserInfo.nickName;
+
+    if (aUserInfo.introduce)
+    {
+        detailLabel.text = aUserInfo.introduce;
+    }
+}
+
 - (void)awakeFromNib {
     // Initialization code
 }

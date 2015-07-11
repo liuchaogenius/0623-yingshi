@@ -16,9 +16,13 @@
   outUrl = [NSString stringWithFormat:@"%@%@",kHubBaseUrl,path];\
 }while(0)
 
-#define kYyBaseUrl @"http://www.aclili.com:3050/"
+#define kYyBaseUrl @"http://www.aclili.com:3050"
 #define kYyImgUrl(path,outUrl) do{\
 outUrl = [NSString stringWithFormat:@"%@%@",kYyBaseUrl,path];\
+}while(0)
+
+#define kYyAImgUrl(path,outUrl) do{\
+outUrl = [NSString stringWithFormat:@"%@/%@",kYyBaseUrl,path];\
 }while(0)
 
 #define isNull(a) [a isKindOfClass:[NSNull class]]

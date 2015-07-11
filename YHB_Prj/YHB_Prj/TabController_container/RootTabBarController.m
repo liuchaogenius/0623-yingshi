@@ -100,7 +100,14 @@
 //    [self presentViewController:testnav animated:YES completion:^{
 //        
 //    }];
-    [self plusImageClicked];
+    if ([YYUser sharedYYUser].isLogin)
+    {
+        [self plusImageClicked];
+    }
+    else
+    {
+        [self showLoginVC];
+    }
 }
 
 - (void)plusImageClicked
@@ -312,6 +319,10 @@
     if(!self.loginVC)
     {
         self.loginVC = [[LoginViewController alloc] init];
+    }
+    else
+    {
+        [self.loginVC clearTextField];
     }
     if(!self.loginNav)
     {

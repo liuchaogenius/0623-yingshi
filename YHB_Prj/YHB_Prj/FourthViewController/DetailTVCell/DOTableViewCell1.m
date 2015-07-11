@@ -29,10 +29,17 @@
 
 - (void)createView
 {
-    myImgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kMainScreenWidth, 200)];
-    [myImgView setImage:IMAGE(@"model")];
+    myImgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kMainScreenWidth, kMainScreenWidth)];
+//    [myImgView setImage:IMAGE(@"model")];
     myImgView.contentMode = UIViewContentModeScaleToFill;
     [self addSubview:myImgView];
+}
+
+- (void)setCellWithData:(DetailVCTUserInfo *)aUserInfo
+{
+    NSString *bgUrl;
+    kYyAImgUrl(aUserInfo.background, bgUrl);
+    [myImgView sd_setImageWithURL:[NSURL URLWithString:bgUrl]];
 }
 
 - (void)awakeFromNib {

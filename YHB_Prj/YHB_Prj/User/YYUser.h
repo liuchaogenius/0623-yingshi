@@ -17,7 +17,7 @@
 @property(nonatomic, strong) YYTUserInfo *userInfo;
 //@property(nonatomic, strong) NSString *token;
 @property(nonatomic, strong) UIImage *localHeadUrl;
-@property(nonatomic, strong) UIImage *localBgUrl;
+//@property(nonatomic, strong) UIImage *localBgUrl;
 
 + (YYUser *)sharedYYUser;
 //退出登录

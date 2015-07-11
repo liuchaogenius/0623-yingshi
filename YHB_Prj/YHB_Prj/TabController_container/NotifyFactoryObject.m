@@ -24,6 +24,11 @@
     [[NSNotificationCenter defaultCenter] addObserver:aTarget selector:aSelector name:kLoginFailMessage object:nil];
 }
 
++ (void)registerLogOut:(id)aTarget action:(SEL)aSelector
+{
+    [[NSNotificationCenter defaultCenter] addObserver:aTarget selector:aSelector name:kLogOut object:nil];
+}
+
 + (void)postNotifyMessage:(NSString *)aMessageName param:(id)aParam
 {
     [[NSNotificationCenter defaultCenter] postNotificationName:aMessageName object:aParam];
